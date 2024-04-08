@@ -506,3 +506,103 @@ div.footer {
 .social-icons .social-icon:hover {
     color: #ff6666;
 }
+
+
+
+.navbar {
+    background-color: #f5f5f5; /* Light grey background color */
+    color: #333333; /* Dark grey text color */
+    padding: 10px 0; /* Padding */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow */
+    font-family: 'Arial', sans-serif; /* Font family */
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.logo img {
+    margin-right: 10px; /* Margin */
+}
+
+.home {
+    font-weight: bold; /* Bold text */
+    text-decoration: none; /* Remove underline */
+    color: #333333; /* Dark grey text color */
+    font-size: 18px; /* Font size */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+/* Navigation links list */
+.nav-group {
+    list-style-type: none; /* Remove bullet points */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* Individual navigation item */
+.nav-item {
+    margin-right: 20px; /* Margin */
+}
+
+/* Navigation link */
+.nav-item a {
+    text-decoration: none; /* Remove underline */
+    color: #333333; /* Dark grey text color */
+    transition: color 0.3s; /* Smooth color transition */
+    font-size: 16px; /* Font size */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Text shadow */
+}
+
+.nav-item a:hover {
+    color: #666666; /* Grey text color on hover */
+    transform: scale(1.1); /* Scale effect on hover */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Text shadow on hover */
+}
+
+
+.button {
+    background-color: #ffffff; /* White button background color */
+    color: #333333; /* Dark grey text color */
+    border: none; /* Remove border */
+    padding: 8px 15px; /* Padding */
+    border-radius: 5px; /* Border radius */
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.3s; /* Smooth background color transition */
+    font-size: 16px; /* Font size */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+
+
+.button:hover {
+    background-color: #f0f0f0; /* Light grey background color on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow on hover */
+}
+
+i {
+    font-style: italic;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.button:hover {
+    animation: pulse 0.5s infinite alternate; /* Apply animation on hover */
+}
+

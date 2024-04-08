@@ -1,5 +1,5 @@
 Platform Overview
-Petstagram: WorkPal serves as a versatile platform connecting pet owners with potential pet sitters or caretakers.
+Petstagram:It serves as a versatile platform connecting pet owners with potential pet sitters or caretakers.
 
 Pet Sitting Listings and Application Functionality
 Users can explore diverse pet sitting listings and seamlessly apply for various opportunities. Pet owners can post detailed listings, outlining their pet's needs and preferences to attract suitable sitters, while pet sitters can effortlessly browse and submit applications through the platform's interface.
@@ -20,11 +20,9 @@ Petstagram: WorkPal's multifaceted approach provides a dynamic environment for b
     <a href="https://www.python.org"><img src="https://skillicons.dev/icons?i=python" alt="Python"></a>&nbsp;&nbsp;&nbsp;
     <a href="https://git-scm.com"><img src="https://skillicons.dev/icons?i=git" alt="Git"></a>&nbsp;&nbsp;&nbsp;
     <a href="https://www.djangoproject.com"><img src="https://skillicons.dev/icons?i=django" alt="Django"></a>&nbsp;&nbsp;&nbsp;
-    <a href="https://www.docker.com"><img src="https://skillicons.dev/icons?i=docker" alt="Docker"></a>&nbsp;&nbsp;&nbsp;
     <a href="https://www.postgresql.org"><img src="https://skillicons.dev/icons?i=postgres" alt="PostgreSQL"></a>&nbsp;&nbsp;&nbsp;
     <a href="https://en.wikipedia.org/wiki/HTML"><img src="https://skillicons.dev/icons?i=html" alt="HTML"></a>&nbsp;&nbsp;&nbsp;
     <a href="https://bg.wikipedia.org/wiki/CSSj"><img src="https://skillicons.dev/icons?i=css" alt="CSS"></a>&nbsp;&nbsp;&nbsp;
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://skillicons.dev/icons?i=js" alt="JavaScript"></a>
 </p>
 
 <br />

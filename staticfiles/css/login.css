@@ -1,0 +1,59 @@
+.login-register-div {
+	margin-top: 13%;
+}
+
+.login-register-box, .second-option {
+	display: block;
+	width: 300px;
+    border-radius:10px;
+	background-color: rgb(255, 255, 255);
+	padding: 40px;
+	margin-bottom: 15px;
+	border: 2px solid rgb(27, 135, 171);
+	box-shadow: 1px 2px 3px #888888;
+}
+
+.login-register-box h1 {
+	font-family: 'Indie Flower', cursive;
+	font-size: 40px;
+	text-align: center;
+	margin-top: -10px;
+}
+
+.login-register-box label {
+	display: none;
+}
+
+.login-register-box input {
+	background-color: rgb(255, 255, 255);
+	border: 0.5px solid rgb(122, 122, 122);
+	border-radius: 4px;
+	height: 30px;
+	width: 100%;
+	padding-left: 2px;
+	margin-top: 10px;
+    font-family: 'Consolas', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+}
+
+.login-register-box button {
+	background-color: rgb(27, 135, 171);
+	font-weight: bold;
+	border: none;
+	width: 100%;
+	border-radius: 6px;
+	margin-top: 10px;
+	height: 30px;
+	color: #262626;
+}
+.login-register-box button:hover {
+    background-color: #efefef;
+    cursor: pointer;
+    color: #262626;
+	opacity: 0.8;
+	font-size: 18px;
+}
+
+.second-option {
+	text-align: center;
+	padding: 20px;
+}

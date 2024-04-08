@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+    <div class="login-register-div">
+        <div class="login-register-box">
+            <h1>Petstagram</h1>
+
+            <form method="post" action="{% url 'signin user' %}">
+                <!-- Email input field with placeholder -->
+                <input type="email" name="email" placeholder="Enter your email" autofocus>
+                <!-- Password input field with placeholder -->
+                <input type="password" name="password" placeholder="Enter your password"
+                       autocomplete="current-password">
+                {% csrf_token %}
+                <button type="submit">Log in</button>
+            </form>
+
+        </div>
+        <div class="second-option">
+            <p>Don't have an account? <a href="{% url 'signup user' %}">Register</a></p>
+        </div>
+    </div>
+{% endblock %}

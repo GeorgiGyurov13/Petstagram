@@ -1,0 +1,356 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.section {
+    flex: 1;
+    background-color: #cecccc;
+    padding: 30px;
+    margin: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+}
+
+.section h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.section p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.additional-content {
+    margin: 12px 24px 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.cta, .testimonial, .latest-posts {
+    flex: 1;
+    background-color: #cecccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.cta h3, .testimonial h3, .latest-posts h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 15px;
+
+}
+
+.cta:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+}
+
+.latest-posts:hover {
+    transform: translateY(-5px);
+}
+
+.cta p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.cta button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cta button:hover {
+    background-color: #0056b3;
+}
+
+.testimonial blockquote {
+    margin: 0;
+    padding: 0;
+    border-left: 4px solid #007bff;
+    padding-left: 20px;
+}
+
+.testimonial p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.testimonial cite {
+    color: #333;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.latest-posts ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.latest-posts ul li {
+    margin-bottom: 10px;
+}
+
+.latest-posts ul li a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.latest-posts ul li a:hover {
+    text-decoration: underline;
+}
+
+.petstagram-image {
+    margin-left: 230px;
+    height: 80%;
+    margin-top: 2px;
+    margin-bottom: 2px
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding-left: 3px;
+
+
+}
+
+.navbar a {
+    border-radius: 8px;
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: transform 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #007bff;
+    color: #ffffff;
+    transform: translateY(4px);
+}
+
+.navbar-right {
+    float: right;
+}
+
+.logo {
+    float: left;
+    padding: 14px 16px;
+    font-size: 24px;
+    color: white;
+}
+
+@media screen and (max-width: 600px) {
+    .navbar a, .navbar-right {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .navbar-right {
+        float: none;
+    }
+}
+
+
+/* Intro Section Styles */
+
+.intro-section {
+    margin-top: 3.6rem;
+    background-image: url('https://th.bing.com/th/id/R.be910db951bafca7bbf5cd2c84600731?rik=gUnyuTcaWMFyZA&riu=http%3a%2f%2fstatic.businessinsider.com%2fimage%2f5484d9d1eab8ea3017b17e29%2fimage.jpg&ehk=ZlAb9lfwIXaM71NHuo2whoDj3oykbAvI2H%2b9ntY42OE%3d&risl=&pid=ImgRaw&r=0'); /* Replace 'background.jpg' with your image filename */
+    background-size: cover; /* Scale the background image to fit within the container */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position: center; /* Center the background image */
+    height: 100vh; /* Set the height to full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+    color: #fff; /* Text color */
+}
+
+.intro-container {
+    text-align: center;
+}
+
+.intro-container h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.intro-container p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #262626;
+}
+
+
+.container-advantage {
+    max-width: 1305px;
+    margin: auto;
+    padding: 20px;
+    margin-bottom: -20rem;
+    background-color: #cecccc;
+    margin-top: -15rem;
+}
+
+.section {
+    border-top: 2px solid #cec5c5;
+    margin-top: 15rem;
+    text-align: center;
+    padding: 50px 0;
+
+}
+
+.h2.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #4d5666;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: normal;
+    font-family: "Montserrat", sans-serif;
+}
+
+.h2 {
+    margin: 20px 0;
+    font-size: 2.5rem;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+}
+
+.service-item {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    background-color: #f7f7f7;
+}
+
+.service-item .card-icon {
+    background-color: #007bff;
+    min-width: 75px;
+    height: 80px;
+    display: grid;
+    place-items: center;
+    border-radius: 20px 0;
+    transition: 0.25s ease;
+    margin-left: 1rem;
+    margin-right: 15px;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.service-item:hover .card-icon {
+    border-radius: 0;
+    border-top-right-radius: 20px;
+    background-color: black;
+}
+
+.service-item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.card-title {
+    color: #4d5666;
+    margin-bottom: 0.2rem;
+    font-size: 1.5rem;
+}
+
+.card-text {
+    margin: 0px;
+    color: #463d3d;
+}
+
+.img-holder {
+    width: 100%;
+    max-width: 425px;
+    margin: 0 -5px;
+    transition: transform 0.3s ease;
+}
+
+.img-holder:hover {
+    transform: scale(1.05);
+}
+
+.img-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}

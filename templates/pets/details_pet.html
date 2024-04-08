@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+    <div class="pet-profile">
+        <div class="profile">
+            <div class="profile-data">
+                <div class="profile_img">
+                    <div class="image">
+                        <img src="{{ pet.pet_photo }}"
+                             alt="img8">
+                    </div>
+                </div>
+                <div class="personal">
+                    <div class="edit">
+                        <p>{{ object.name }}</p>
+                        <a href="{% url 'edit pet' username='Doncho' pet_slug=object.slug %}">
+                            <img class="edit-img" src="{% static 'images/edit-pen-icon-6.jpg' %}" alt="edit button">
+                        </a>
+                        <a href="{% url 'delete pet' username='Doncho' pet_slug=object.slug %}">
+                            <img class="bin-img" src="{% static 'images/icon-remove-22.jpg' %}" alt="bin button">
+                        </a>
+                    </div>
+                    <div class="data">
+                        <span>{{ object.petphoto_set.count }}</span>
+                        <p>photos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pet-posts">
+            {% include 'partials/pet_photos_list.html' with photo_list=object.petphoto_set.all %}
+        </div>
+    </div>
+{% endblock %}

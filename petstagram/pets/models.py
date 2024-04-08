@@ -1,0 +1,46 @@
+from django.contrib.auth import get_user_model
+from django.db import models
+from django.utils.text import slugify
+
+# UserModel =
+
+
+class Pet(models.Model):
+    MAX_NAME_LENGTH = 30
+    MAX_PET_PHOTO_LENGTH = 500
+
+    name = models.CharField(
+        max_length=MAX_NAME_LENGTH,
+        null=False,
+        blank=False,
+    )
+
+    pet_photo = models.URLField(
+        null=False,
+        blank=False,
+        max_length=MAX_PET_PHOTO_LENGTH,
+    )
+
+    date_of_birth = models.DateField(
+        null=True,
+        blank=True,
+    )
+
+    slug = models.SlugField(
+        unique=True,
+        null=False,
+        blank=True,
+        editable=False,  # Readonly, only in the Django App, not in the DB
+    )
+    # user = models.ForeignKey(to=UserModel, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        if not self.slug:  # slugify("My name") -> "My-name"
+            self.slug = slugify(f"{self.name}-{self.pk}")
+
+        super().save(*args, **kwargs)

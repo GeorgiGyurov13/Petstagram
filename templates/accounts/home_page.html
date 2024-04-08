@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Sections</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{% static 'css/home_page.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          integrity="sha512-V9O7vZMjQo7NZBPEKMLIKXuM4HeB9ndU2ZmLqzZlW+XBS4MnQhMpR21y/HpNXKq6B7erwyaMwDdOsIbQlXfUzg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body>
+<div class="navbar">
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'services' %}">Services</a>
+    <a href="{% url 'contact' %}">Contact</a>
+    <a href="{% url 'admin-redirect' %}">Admin</a>
+    <img width="50px" class="petstagram-image" src="{% static '/images/free-30-instagram-stories-icons23_122570.png' %}"
+         alt="img1">
+    {% if not user.is_authenticated %}
+        <div class="navbar-right">
+            <a href="{% url 'signin user' %}">Login</a>
+            <a href="{% url 'signup user' %}">Sign Up</a>
+        </div>
+    {% else %}
+        <div class="navbar-right">
+              <a href="{% url 'signout user' %}">Sign Out</a>
+        </div>
+    {% endif %}
+
+</div>
+<section id="intro" class="intro-section">
+    <div class="intro-container">
+        <h1>Welcome to Petstagram</h1>
+        <p>Your ultimate destination for pet lovers!</p>
+        <button class="btn">Explore Now</button>
+    </div>
+</section>
+<section class="section service">
+    <div class="container-advantage">
+        <h2 class="h2 section-title">
+            What Advantages does Petstagram have?
+        </h2>
+        <div class="wrapper">
+            <ul class="service-list">
+                <li class="service-item">
+                    <div>
+                        <h3 class="h5 card-title">Priceless Experience</h3>
+                        <p class="card-text">
+                            Together, we discover the true essence of happiness in the simplest of moments.
+                        </p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+                </li>
+                <li class="service-item">
+                    <div>
+                        <h3 class="h5 card-title">Extremely Widespread</h3>
+                        <p class="card-text">
+                            Petstagram is Sharing Platform for all your Pets
+                        </p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="bi bi-globe-asia-australia"></i>
+                    </div>
+                </li>
+                <li class="service-item">
+                    <div>
+                        <h3 class="h5 card-title">Priceless application</h3>
+                        <p class="card-text">
+                            Experience wide Contacts with Our Platform Solutions
+                        </p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="bi bi-wallet"></i>
+                    </div>
+                </li>
+            </ul>
+            <figure class="service-banner img-holder" style="width: 805; height: 510;">
+                <img src="{% static '/images/dog-on-road.jpg' %}" width="905" height="710" loading="lazy"
+                     alt="service banner"
+                     class="img-cover">
+            </figure>
+            <ul class="service-list">
+                <li class="service-item">
+                    <div>
+                        <h3 class="h5 card-title">Priceless Experience</h3>
+                        <p class="card-text">
+                            Together, we discover the true essence of happiness in the simplest of moments.
+                        </p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+                </li>
+                <li class="service-item">
+                    <div>
+                        <h3 class="h5 card-title">Extremely Widespread</h3>
+                        <p class="card-text">
+                            Petstagram is Sharing Platform for all your Pets
+                        </p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="bi bi-globe-asia-australia"></i>
+                    </div>
+                </li>
+                <li class="service-item">
+                    <div>
+                        <h3 class="h5 card-title">Priceless application</h3>
+                        <p class="card-text">
+                            Experience wide Contacts with Our Platform Solutions
+                        </p>
+                    </div>
+                    <div class="card-icon">
+                        <i class="bi bi-wallet"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <section class="section">
+        <h2>Section 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet lorem odio. Fusce fermentum
+            venenatis dolor, a efficitur ligula blandit in.</p>
+    </section>
+    <section class="section">
+        <h2>Section 2</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet lorem odio. Fusce fermentum
+            venenatis dolor, a efficitur ligula blandit in.</p>
+    </section>
+    <section class="section">
+        <h2>Section 3</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet lorem odio. Fusce fermentum
+            venenatis dolor, a efficitur ligula blandit in.</p>
+    </section>
+</div>
+<!-- Additional Content -->
+<div class="additional-content">
+    <div class="cta">
+        <h3>Sign Up Now!</h3>
+        <p>Don't miss out on our latest updates and offers. Sign up now!</p>
+        <button>Sign Up</button>
+    </div>
+
+    <div class="testimonial">
+        <h3>Testimonials</h3>
+        <blockquote>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet lorem odio."</p>
+            <cite>- John Doe</cite>
+        </blockquote>
+        <blockquote>
+            <p>"Fusce fermentum venenatis dolor, a efficitur ligula blandit in."</p>
+            <cite>- Jane Smith</cite>
+        </blockquote>
+    </div>
+
+    <div class="latest-posts">
+        <h3>Latest Blog Posts</h3>
+        <ul>
+            <li><a href="#">Post Title 1</a></li>
+            <li><a href="#">Post Title 2</a></li>
+            <li><a href="#">Post Title 3</a></li>
+        </ul>
+    </div>
+</div>
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo neque vel justo hendrerit.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email: info@example.com</p>
+            <p>Phone: +123-456-7890</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="bi bi-whatsapp"></i></a>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar">
+        <p>&copy; 2024 Your Company. All Rights Reserved. | <a href="#">Terms of Service</a> | <a href="#">Privacy
+            Policy</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

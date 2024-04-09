@@ -7,22 +7,32 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
+            background: linear-gradient(to bottom, #f0f0f0, #ffffff);
+            margin: 0;
+            padding: 0;
         }
 
         .container {
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 1s ease-out;
         }
 
         h1 {
             text-align: center;
-            margin-bottom: 20px;
             color: #333;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
         }
 
         .form-group {
@@ -32,6 +42,7 @@
         label {
             font-weight: bold;
             color: #555;
+            margin-bottom: 5px;
         }
 
         input[type="text"],
@@ -40,23 +51,24 @@
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
         }
 
-        textarea {
-            height: 150px;
-            resize: vertical;
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            border-color: #007bff;
         }
 
         input[type="submit"] {
+            width: 100%;
+            padding: 12px;
             background-color: #007bff;
             color: #fff;
             border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            font-size: 16px;
+            border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
@@ -64,27 +76,85 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #007bff;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 80%);
+            z-index: -1;
+            animation: slideInBg 1s ease-out;
+        }
+
+        @keyframes slideInBg {
+            0% {
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+            }
+            100% {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 80%);
+            }
+        }
+
+        /* Additional styling */
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .form-group input[type="text"].active,
+        .form-group input[type="email"].active,
+        .form-group textarea.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Contact Us</h1>
-        <form method="post">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="id_name">Name:</label>
-                {{ form.name }}
-            </div>
-            <div class="form-group">
-                <label for="id_email">Email:</label>
-                {{ form.email }}
-            </div>
-            <div class="form-group">
-                <label for="id_message">Message:</label>
-                {{ form.message }}
-            </div>
-            <input type="submit" value="Submit">
-        </form>
-    </div>
+
+<div class="container">
+    <h1>Contact Us</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_name">Your Name</label>
+            <input type="text" id="id_name" name="name" class="active" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+            <label for="id_email">Your Email</label>
+            <input type="email" id="id_email" name="email" class="active" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+            <label for="id_message">Your Message</label>
+            <textarea id="id_message" name="message" class="active" placeholder="Type your message here" required></textarea>
+        </div>
+        <input type="submit" value="Send Message">
+    </form>
+</div>
+
 </body>
 </html>

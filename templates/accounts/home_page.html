@@ -16,6 +16,7 @@
 <div class="navbar">
     <a href="{% url 'index' %}">Home</a>
     <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'FQA' %}">FQA</a>
     <a href="{% url 'services' %}">Services</a>
     <a href="{% url 'contact' %}">Contact</a>
     <a href="{% url 'admin-redirect' %}">Admin</a>
@@ -28,7 +29,7 @@
         </div>
     {% else %}
         <div class="navbar-right">
-              <a href="{% url 'signout user' %}">Sign Out</a>
+            <a href="{% url 'signout user' %}">Sign Out</a>
         </div>
     {% endif %}
 

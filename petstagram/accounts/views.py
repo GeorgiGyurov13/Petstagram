@@ -12,6 +12,7 @@ from petstagram.accounts.models import PetstagramUser, Profile
 
 class OwnerRequiredMixin(AccessMixin):
     """Verify that the current user has this profile."""
+
     def dispatch(self, request, *args, **kwargs):
         if request.user.pk != kwargs.get('pk', None):
             return self.handle_no_permission()
@@ -101,3 +102,7 @@ class ServiceView(TemplateView):
 
 class AdminRedirectView(RedirectView):
     url = reverse_lazy('admin:index')
+
+
+class FQAView(TemplateView):
+    template_name = 'accounts/FQA.html'

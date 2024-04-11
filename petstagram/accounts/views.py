@@ -8,6 +8,9 @@ from django.views.generic import TemplateView, FormView, RedirectView
 
 from petstagram.accounts.forms import PetstagramUserCreationForm, PetstagramChangeForm, ContactForm
 from petstagram.accounts.models import PetstagramUser, Profile
+from django.shortcuts import render
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 class OwnerRequiredMixin(AccessMixin):
@@ -106,3 +109,5 @@ class AdminRedirectView(RedirectView):
 
 class FQAView(TemplateView):
     template_name = 'accounts/FQA.html'
+
+

@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Your head content -->
+</head>
+<body>
+<h1>Greeting from us!</h1>
+<div class="container">
+    <!-- Your form content -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('form').on('submit', function (event) {
+                event.preventDefault(); // Prevent form submission
+
+                var formData = $(this).serialize(); // Serialize form data
+
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url "send_email" %}', // Replace 'send_email' with the name of your Django view
+                    data: formData,
+                    success: function (response) {
+                        alert(response.message); // Show success message
+                        // You can also redirect the user to a thank you page or clear the form fields here
+                    },
+                    error: function (xhr, status, error) {
+                        alert('An error occurred while sending the email.');
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+</div>
+
+</body>
+</html>

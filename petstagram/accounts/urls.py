@@ -1,3 +1,4 @@
+from django.core.mail import send_mail
 from django.urls import path, include
 
 from petstagram.accounts.views import \
@@ -24,4 +25,10 @@ urlpatterns = (
             path("delete/", ProfileDeleteView.as_view(), name="delete profile")
         ]),
     )
+)
+send_mail(
+    subject="Registration successfully",
+    message="Everything is fine!",
+    from_email="info@petstagram.com",
+    recipient_list=('georgigyurov387@gmail.com',),
 )

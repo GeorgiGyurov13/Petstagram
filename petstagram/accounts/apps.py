@@ -7,3 +7,5 @@ class AccountsConfig(AppConfig):
 
     def ready(self):
         import petstagram.accounts.signals
+        result = super().ready()
+        return result

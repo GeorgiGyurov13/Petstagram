@@ -26,9 +26,3 @@ urlpatterns = (
         ]),
     )
 )
-send_mail(
-    subject="Registration successfully",
-    message="Everything is fine!",
-    from_email="info@petstagram.com",
-    recipient_list=('georgigyurov387@gmail.com',),
-)

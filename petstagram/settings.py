@@ -23,7 +23,7 @@ INSTALLED_APPS = [
 
     # Project apps
     "petstagram.common",
-    "petstagram.accounts",
+    "petstagram.accounts.apps.AccountsConfig",
     "petstagram.photos",
     "petstagram.pets",
 ]

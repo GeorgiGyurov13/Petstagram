@@ -72,7 +72,7 @@ DATABASES = {
         "PORT": "5432",
     }
 }
-DEBUG_PROPAGATE_EXCEPTIONS=True
+DEBUG_PROPAGATE_EXCEPTIONS = True
 #
 # AUTH_PASSWORD_VALIDATORS = [
 #     {
@@ -136,3 +136,6 @@ LOGGING = {
 AUTH_USER_MODEL = 'accounts.PetstagramUser'
 LOGIN_REDIRECT_URL = reverse_lazy('home')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
+
+MAILJET_API_KEY = '211a60c4b5b98b77fade92ea18d312b5'
+MAILJET_SECRET_KEY = 'cb6215db0ed6d001b86131fb94a8d715'

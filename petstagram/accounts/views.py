@@ -110,13 +110,25 @@ class HomePageView(TemplateView):
 
 # contact/views.py
 
-class ContactView(FormView):
+class ContactFormView(FormView):
     template_name = 'accounts/contact.html'
     form_class = ContactForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('send_email_verification')
 
     def form_valid(self, form):
-        form.send_email()
+        name = form.cleaned_data['name']
+        email = form.cleaned_data['email']
+        message = form.cleaned_data['message']
+
+        # Send email
+        send_mail(
+            subject='New message from your website',
+            message=message,
+            from_email=email,
+            recipient_list=('gyurovgeorgi740@gmail.com',),
+            fail_silently=False,
+        )
+
         return super().form_valid(form)
 
 
@@ -138,3 +150,12 @@ class FQAView(TemplateView):
 
 class TermsOfUseView(TemplateView):
     template_name = 'accounts/terms_of_use.html'
+
+
+class SendEmailView(TemplateView):
+    template_name = 'accounts/welcome_email.html'
+
+
+def about_page(request):
+    team_members = PetstagramUser.objects.all()
+    return render(request, 'accounts/about.html', {'team_members': team_members})

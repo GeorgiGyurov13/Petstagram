@@ -18,120 +18,70 @@
         <h2>Welcome to Our Website!</h2>
         <p>We are a team of passionate individuals dedicated to providing innovative solutions for our clients.</p>
         <div class="sign-up-button-container">
-            <a href="#" class="sign-up-button">Sign Up</a>
+            <a href="{% url 'signup user' %}" class="sign-up-button">Sign Up</a>
         </div>
     </section>
     <section id="mission">
-    <h2>Our Capabilities</h2>
-    <div class="card-container">
-        <div class="card">
-            <div class="card-icon">
-                <i class="bi bi-lightbulb"></i>
+        <h2>Our Capabilities</h2>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-icon">
+                    <i class="bi bi-lightbulb"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Idea Generation</h3>
+                    <p>We generate innovative ideas tailored to your business needs, ensuring creative solutions.</p>
+                </div>
             </div>
-            <div class="card-content">
-                <h3>Idea Generation</h3>
-                <p>We generate innovative ideas tailored to your business needs, ensuring creative solutions.</p>
+            <div class="card">
+                <div class="card-icon">
+                    <i class="bi bi-tools"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Product Development</h3>
+                    <p>We develop high-quality products using cutting-edge technologies and industry best practices.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <i class="bi bi-person-raised-hand"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Client Collaboration</h3>
+                    <p>We collaborate closely with clients to understand their requirements and deliver tailored
+                        solutions.</p>
+                </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-icon">
-                <i class="bi bi-tools"></i>
-            </div>
-            <div class="card-content">
-                <h3>Product Development</h3>
-                <p>We develop high-quality products using cutting-edge technologies and industry best practices.</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-icon">
-                <i class="bi bi-person-raised-hand"></i>
-            </div>
-            <div class="card-content">
-                <h3>Client Collaboration</h3>
-                <p>We collaborate closely with clients to understand their requirements and deliver tailored solutions.</p>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
     <section id="future-plans" class="petstagram-section">
-    <div class="future-plans-container">
-        <h2>Future Plans</h2>
-        <p>At Petstagram, we are constantly evolving and innovating to provide the best experience for our users. Some of our future plans include:</p>
-        <ul>
-            <li>Expanding our platform to include new features such as pet adoption services.</li>
-            <li>Launching mobile apps for iOS and Android to make it easier for users to connect on the go.</li>
-            <li>Partnering with pet-related businesses to offer exclusive discounts and deals to our users.</li>
-            <li>Organizing community events and meetups for pet lovers to come together and share their experiences.</li>
-        </ul>
-    </div>
-</section>
-
-    <section id="team">
-    <div class="team-container">
-        <h2>Meet Our Team</h2>
-        <div class="team-members">
-            <div class="team-member">
-                <img src="{% static 'images/user.png' %}" alt="John Doe">
-                <h3>John Doe</h3>
-                <p>Lead Developer</p>
-            </div>
-            <div class="team-member">
-                <img src="{% static 'images/user.png' %}" alt="Jane Smith">
-                <h3>Jane Smith</h3>
-                <p>Graphic Designer</p>
-            </div>
-            <div class="team-member">
-                <img src="{% static 'images/user.png' %}" alt="Jane Smith">
-                <h3>Jane Smith</h3>
-                <p>UI Designer</p>
-            </div>
-            <div class="team-member">
-                <img src="{% static 'images/user.png' %}" alt="Jane Smith">
-                <h3>Jane Smith</h3>
-                <p>Video Editor</p>
-            </div>
-            <!-- Add more team members as needed -->
+        <div class="future-plans-container">
+            <h2>Future Plans</h2>
+            <p>At Petstagram, we are constantly evolving and innovating to provide the best experience for our users.
+                Some of our future plans include:</p>
+            <ul>
+                <li>Expanding our platform to include new features such as pet adoption services.</li>
+                <li>Launching mobile apps for iOS and Android to make it easier for users to connect on the go.</li>
+                <li>Partnering with pet-related businesses to offer exclusive discounts and deals to our users.</li>
+                <li>Organizing community events and meetups for pet lovers to come together and share their
+                    experiences.
+                </li>
+            </ul>
         </div>
-    </div>
-</section>
-
-   <section id="reviews" class="reviews-container">
-    <h2>Customer Reviews</h2>
-    <div class="review-card">
-        <div class="review-avatar">
-            <img src="{% static 'images/user.png' %}" alt="Customer Avatar">
-        </div>
-        <div class="review-content">
-            <h3>John Doe</h3>
-            <p>"Petstagram is amazing! I've connected with so many pet lovers and found great tips for taking care
-                of my furry friend."</p>
-        </div>
-    </div>
-    <div class="review-card">
-        <div class="review-avatar">
-            <img src="{% static 'images/user.png' %}" alt="Customer Avatar">
-        </div>
-        <div class="review-content">
-            <h3>Jane Smith</h3>
-            <p>"I love Petstagram! It's a fun and friendly community where I can share photos of my pets and meet
-                other pet owners."</p>
-        </div>
-    </div>
-    <!-- Add more review cards as needed -->
-</section>
-
-
+    </section>
+    {% include 'accounts/persons.html' %}
 
 </div>
 <footer>
     <div class="footer-container">
         <div class="footer-section">
             <h3>About Us</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo neque vel justo hendrerit.</p>
+            <p>At Petstagram, we're dedicated to online community where pet lovers from all walks of life can come
+                together to share their passion for animals.</p>
         </div>
         <div class="footer-section">
             <h3>Contact Us</h3>
-            <p>Email: info@example.com</p>
+            <p>Email: petsagram@gmail.com</p>
             <p>Phone: +123-456-7890</p>
         </div>
         <div class="footer-section">
@@ -144,9 +94,10 @@
         </div>
     </div>
     <div class="bottom-bar">
-        <p>&copy; 2024 Your Company. All Rights Reserved. | <a href="#">Terms of Service</a> | <a href="#">Privacy
+        <p>&copy; 2024 Petstagram Company. All Rights Reserved. | <a href="#">Terms of Service</a> | <a href="#">Privacy
             Policy</a></p>
     </div>
 </footer>
+
 </body>
 </html>

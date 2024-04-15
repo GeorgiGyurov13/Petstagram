@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    /* Style for team member container */
+    .team-container {
+        margin-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Style for team member */
+    .team-member {
+        text-align: center;
+        margin-bottom: 30px;
+        width: 200px;
+        transition: transform 0.3s ease; /* Add transition effect */
+    }
+
+    /* Hover effect for team member */
+    .team-member:hover {
+        transform: translateY(-10px); /* Move the member up on hover */
+    }
+
+    /* Style for team member image */
+    .team-member img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        border: 2px solid #fff; /* Add a border to the image */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        transition: transform 0.3s ease; /* Add transition effect */
+    }
+
+    /* Hover effect for team member image */
+    .team-member:hover img {
+        transform: scale(1.1); /* Scale up the image on hover */
+    }
+
+    /* Style for team member name */
+    .team-member h3 {
+        font-size: 20px;
+        margin-bottom: 5px;
+        color: #333;
+        transition: color 0.3s ease; /* Add transition effect */
+    }
+
+    /* Hover effect for team member name */
+    .team-member:hover h3 {
+        color: #1d92ff; /* Change text color on hover */
+    }
+
+    /* Style for team member role */
+    .team-member p {
+        font-size: 16px;
+        color: #666;
+        transition: color 0.3s ease; /* Add transition effect */
+    }
+
+    /* Hover effect for team member role */
+    .team-member:hover p {
+        color: #1d92ff; /* Change text color on hover */
+    }
+</style>
+<body>
+
+<!-- about.html -->
+<section id="team">
+    <div class="team-container">
+        <h2>Meet Our Memebrs</h2>
+        <div class="team-members">
+            {% if team_members %}
+                {% for member in team_members %}
+                    <div class="team-member">
+                        <img src="{{ member.first_name }}" alt="{{ member.last_name }}">
+                        <h3>{{ member.emal }}</h3>
+                        <p>{{ member.date_joined }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No members yet!</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

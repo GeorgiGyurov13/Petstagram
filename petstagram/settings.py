@@ -137,13 +137,14 @@ AUTH_USER_MODEL = 'accounts.PetstagramUser'
 LOGIN_REDIRECT_URL = reverse_lazy('home')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
-MAILJET_API_KEY = '211a60c4b5b98b77fade92ea18d312b5'
-MAILJET_SECRET_KEY = 'cb6215db0ed6d001b86131fb94a8d715'
-DEFAULT_FROM_EMAIL = 'ggogata43@gmail.com'
+# MAILJET_API_KEY = '211a60c4b5b98b77fade92ea18d312b5'
+# MAILJET_SECRET_KEY = 'cb6215db0ed6d001b86131fb94a8d715'
+# DEFAULT_FROM_EMAIL = 'ggogata43@gmail.com'
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "georgigyurov387@gmail.com"
-EMAIL_HOST_PASSWORD = "vcyvbkgkuzvaqyqe"
+EMAIL_HOST_USER = "gyurovgeorgi740@gmail.com"
+EMAIL_HOST_PASSWORD = "vnhmwoauemuqbeyo"
+

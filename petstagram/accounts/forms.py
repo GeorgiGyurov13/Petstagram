@@ -14,18 +14,6 @@ class ContactForm(forms.Form):
     email = forms.EmailField()
     message = forms.CharField(widget=forms.Textarea)
 
-    # def send_email(self):
-    #     name = self.cleaned_data['name']
-    #     email = self.cleaned_data['email']
-    #     message = self.cleaned_data['message']
-    #     send_mail(
-    #         f"Message from {name}",
-    #         message,
-    #         email,
-    #         ['your@email.com'],  # Change to your email address
-    #         fail_silently=False,
-    #     )
-
 
 class PetstagramUserCreationForm(auth_forms.UserCreationForm):
     class Meta(auth_forms.UserCreationForm.Meta):

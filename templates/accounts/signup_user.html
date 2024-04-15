@@ -9,12 +9,24 @@
             <form method="post" action='{% url 'signup user' %}'>
                 {% csrf_token %}
                 <!-- Email input field with placeholder -->
-                <input type="email" name="email" placeholder="Enter your email">
-                <!-- Password input field with placeholder -->
-                <input type="password" name="password1" placeholder="Enter your password">
-                <!-- Confirm Password input field with placeholder -->
-                <input type="password" name="password2" placeholder="Repeat password">
-                <button type="submit">Register</button>
+                {{ form_profile.first_name }}
+                {{ form_profile.first_name.errors }}
+                {{ form_profile.last_name }}
+                {{ form_profile.last_name.errors }}
+                {{ form_profile.date_of_birth }}
+                {{ form_profile.date_of_birth.errors }}
+                {{ form_profile.profile_picture }}
+                {{ form_profile.profile_picture.errors }}
+                {{ form_user.email }}
+                {{ form_user.email.errors }}
+                {{ form_user.password1 }}
+                {{ form_user.password1.errors }}
+                {{ form_user.password2 }}
+                {{ form_user.password2.errors }}
+                {{ form_user.errors }}
+                {{ form_profile.errors }}
+                
+                <button type="submit" class="btn btn">Register</button>
             </form>
         </div>
         <div class="second-option">

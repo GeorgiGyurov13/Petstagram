@@ -2,13 +2,13 @@ from django.core.mail import send_mail
 from django.urls import path, include
 
 from petstagram.accounts.views import \
-    SignUpUserView, SignInUserView, \
+    SignUpView, SignInUserView, \
     ProfileDetailsView, \
     ProfileUpdateView, signout_user, ProfileDeleteView, HomePageView, ContactView, AboutView, ServiceView, \
-    AdminRedirectView, FQAView
+    AdminRedirectView, FQAView, TermsOfUseView
 
 urlpatterns = (
-    path("signup/", SignUpUserView.as_view(), name="signup user"),
+    path("signup/", SignUpView.as_view(), name="signup user"),
     path("signin/", SignInUserView.as_view(), name="signin user"),
     path("signout/", signout_user, name="signout user"),
     path("", HomePageView.as_view(), name="home page"),
@@ -17,6 +17,7 @@ urlpatterns = (
     path('services/', ServiceView.as_view(), name='services'),
     path('admin-redirect/', AdminRedirectView.as_view(), name='admin-redirect'),
     path('FQA/', FQAView.as_view(), name='FQA'),
+    path('terms-of-use/', TermsOfUseView.as_view(), name='terms_of_use'),
 
     path(
         "profile/<int:pk>/", include([

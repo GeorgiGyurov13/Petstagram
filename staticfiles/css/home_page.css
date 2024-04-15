@@ -1,5 +1,4 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f7f7f7;
     margin: 0;
     padding: 0;
@@ -12,33 +11,61 @@ body {
     display: flex;
     justify-content: space-between;
 }
-
 .section {
     flex: 1;
-    background-color: #cecccc;
-    padding: 30px;
-    margin: 6px 12px;
+    background-color: #f0f0f0; /* Light gray background */
+    padding: 20px;
+    margin: 12px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .section:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
 }
 
 .section h2 {
-    margin-top: 0;
-    color: #333;
+    color: #3f3c3c; /* Deep blue color for h2 text */
     font-size: 24px;
     margin-bottom: 10px;
+    transition: color 0.3s ease; /* Added color transition */
 }
 
 .section p {
-    color: #666;
+    color: #3f3c3c; /* Dark gray color for p text */
     font-size: 16px;
     line-height: 1.6;
+    padding: 6px 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    transition: color 0.3s ease; /* Added color transition */
 }
+
+.section:nth-child(odd) {
+    background-color: #9ac6f5; /* Deep blue background color for odd sections */
+}
+
+.section:nth-child(even) {
+    background-color: #9ac6f5; /* Light blue background color for even sections */
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .additional-content {
     margin: 12px 24px 12px 24px;
@@ -82,7 +109,7 @@ body {
     line-height: 1.6;
 }
 
-.cta button {
+.cta a {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -91,9 +118,10 @@ body {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+    text-decoration: none;
 }
 
-.cta button:hover {
+.cta a:hover {
     background-color: #0056b3;
 }
 
@@ -122,7 +150,19 @@ body {
 }
 
 .latest-posts ul li {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
+}
+
+.fa-1x{
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
 }
 
 .latest-posts ul li a {
@@ -156,6 +196,7 @@ body {
     top: 0;
     width: 100%;
     z-index: 1000;
+    padding-top: 4px;
     padding-left: 3px;
 
 
@@ -176,7 +217,7 @@ body {
 .navbar a:hover {
     background-color: #007bff;
     color: #ffffff;
-    transform: translateY(4px);
+    transform: translateY(1px);
 }
 
 .navbar-right {
@@ -242,6 +283,7 @@ body {
     border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 .btn:hover {
@@ -354,3 +396,4 @@ body {
     height: auto;
     border-radius: 8px;
 }
+

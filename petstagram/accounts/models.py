@@ -72,7 +72,6 @@ class Profile(models.Model):
 
     user = models.OneToOneField(
         PetstagramUser,
-        primary_key=True,
         on_delete=models.CASCADE,
     )
 

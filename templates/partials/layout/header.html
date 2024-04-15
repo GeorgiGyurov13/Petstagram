@@ -1,4 +1,10 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+</head>
+<body>
 <header>
     <nav class="navbar">
         <div class="container">
@@ -7,46 +13,40 @@
                     <img width="50px" src="{% static '/images/free-30-instagram-stories-icons23_122570.png' %}"
                          alt="img1">
                 </a>
-                <a class="home" href="{% url 'index' %}">
-                    <i>Petstagram</i>
-                </a>
+
             </div>
 
             <div class="nav-links">
                 <ul class="nav-group">
                     <li class="nav-item">
-                        <a href="{% url 'home page' %}">
-                            <i>Home</i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'create pet' %}">
+                        <a href="{% url 'create pet' %}" id="a">
                             <i>Add Pet</i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'create photo' %}">
+                        <a href="{% url 'create photo' %}" id="a">
                             <i>Add Photo</i>
                         </a>
                     </li>
                     {% if request.user.is_authenticated %}
                         <li class="nav-item">
-                            <a href="{% url 'details profile' pk=request.user.pk %}">
+                            <a href="{% url 'details profile' pk=request.user.pk %}" id="a">
                                 <i>Profile</i>
                             </a>
                         </li>
-                        <form method="post" action="{% url 'signout user' %}">
-                            {% csrf_token %}
-                            <button class="button" type="submit"><i>Log out</i></button>
-                        </form>
+                        <li class="nav-item">
+                            <a href="{% url 'signout user' %}" id="a">
+                                <i>Log out</i>
+                            </a>
+                        </li>
                     {% else %}
                         <li class="nav-item">
-                            <a href="{% url 'signin user' %}">
+                            <a href="{% url 'signin user' %}" id="a">
                                 <i>Login</i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{% url 'signup user' %}">
+                            <a href="{% url 'signup user' %}" id="a">
                                 <i>Register</i>
                             </a>
                         </li>
@@ -54,5 +54,7 @@
                 </ul>
             </div>
         </div>
+        <a href="{% url 'home page' %}" class="home-button">Home</a>
     </nav>
 </header>
+</body>

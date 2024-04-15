@@ -6,7 +6,7 @@ from django.urls import reverse_lazy, reverse
 from django.views import generic as views
 from django.views.generic import TemplateView, FormView, RedirectView
 
-from petstagram.accounts.forms import PetstagramUserCreationForm, PetstagramChangeForm, ContactForm
+from petstagram.accounts.forms import PetstagramUserCreationForm, PetstagramChangeForm, ContactForm, UserCreationForm
 from petstagram.accounts.models import PetstagramUser, Profile
 from django.shortcuts import render
 from django.core.mail import send_mail
@@ -28,18 +28,43 @@ class SignInUserView(auth_views.LoginView):
     success_url = reverse_lazy('about')
 
 
-class SignUpUserView(views.CreateView):
-    template_name = "accounts/signup_user.html"
-    form_class = PetstagramUserCreationForm
-    success_url = reverse_lazy("index")
+class SignUpView(TemplateView):
+    form_class_user = PetstagramUserCreationForm
+    form_class_profile = UserCreationForm
+    template_name = 'accounts/signup_user.html'
+    success_url = reverse_lazy('home')
 
-    def form_valid(self, form):
-        # `form_valid` will call `save`
-        result = super().form_valid(form)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form_user'] = self.form_class_user()
+        context['form_profile'] = self.form_class_profile()
+        return context
 
-        login(self.request, form.instance)
+    def post(self, request, *args, **kwargs):
+        form_user = self.form_class_user(request.POST)
+        form_profile = self.form_class_profile(request.POST)
 
-        return result
+        if form_user.is_valid() and form_profile.is_valid():
+            return self.forms_valid(form_user, form_profile)
+        else:
+            return self.forms_invalid(form_user, form_profile)
+
+    def forms_valid(self, form_user, form_profile):
+        try:
+            user = form_user.save()
+            print(user)
+            form_profile.save(user=user)
+
+            login(self.request, user)
+
+            return redirect('home')
+        except Exception as e:
+            if str(e) == 'Passwords do not match!':
+                form_user.add_error('password', 'Passwords do not match!')
+            return self.forms_invalid(form_user, form_profile)
+
+    def forms_invalid(self, form_user, form_profile):
+        return render(self.request, self.template_name, {'form_user': form_user, 'form_profile': form_profile})
 
 
 def signout_user(request):
@@ -111,3 +136,5 @@ class FQAView(TemplateView):
     template_name = 'accounts/FQA.html'
 
 
+class TermsOfUseView(TemplateView):
+    template_name = 'accounts/terms_of_use.html'

@@ -38,7 +38,7 @@
     <div class="intro-container">
         <h1>Welcome to Petstagram</h1>
         <p>Your ultimate destination for pet lovers!</p>
-        <button class="btn">Explore Now</button>
+        <a href="{% url 'signup user' %}" class="btn">Explore Now</a>
     </div>
 </section>
 <section class="section service">
@@ -127,47 +127,57 @@
 </section>
 <div class="container">
     <section class="section">
-        <h2>Section 1</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet lorem odio. Fusce fermentum
-            venenatis dolor, a efficitur ligula blandit in.</p>
+        <h2>Discover Adorable Pets from Around the World</h2>
+        <p>Dive into a world of cuteness and companionship with Petstagram. Explore a diverse range of pets, from fluffy
+            cats to playful dogs, and everything in between. Share your own pet's adventures and connect with fellow
+            animal lovers in our vibrant community.</p>
+
     </section>
     <section class="section">
-        <h2>Section 2</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet lorem odio. Fusce fermentum
-            venenatis dolor, a efficitur ligula blandit in.</p>
+        <h2>Discover Adorable Pets from Around the World</h2>
+        <p>Every pet has a story to tell, and Petstagram is the perfect platform to share it. Whether your pet is a
+            rescue, a champion, or simply your beloved companion, their story matters. Join us in celebrating the joy
+            and love that our furry friends bring to our lives by sharing your pet's special moments with the world.</p>
     </section>
     <section class="section">
-        <h2>Section 3</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet lorem odio. Fusce fermentum
-            venenatis dolor, a efficitur ligula blandit in.</p>
+        <h2>Connect with Like-Minded Pet Enthusiasts</h2>
+        <p>Petstagram isn't just a place to post cute pictures of your pets—it's a community of passionate pet owners
+            and enthusiasts. Connect with others who share your love for animals, exchange tips and advice, and forge
+            meaningful friendships. Whether you're seeking pet care tips or simply want to gush about your furry friend,
+            you'll find a welcoming community here on Petstagram.</p>
     </section>
 </div>
 <!-- Additional Content -->
 <div class="additional-content">
     <div class="cta">
-        <h3>Sign Up Now!</h3>
-        <p>Don't miss out on our latest updates and offers. Sign up now!</p>
-        <button>Sign Up</button>
+        <h3>Terms of use</h3>
+        <p>Don't miss out on our latest updates on terms of use</p>
+        <a href="{% url 'terms_of_use' %}">Check now!</a>
     </div>
 
     <div class="testimonial">
-        <h3>Testimonials</h3>
+        <h3>Quotes of Users</h3>
         <blockquote>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet lorem odio."</p>
-            <cite>- John Doe</cite>
+            <p>Petstagram is more than just an app—it's a family of pet enthusiasts united by their love for all
+                creatures great and small. </p>
+            <cite>- Ivan Petrov</cite>
         </blockquote>
         <blockquote>
-            <p>"Fusce fermentum venenatis dolor, a efficitur ligula blandit in."</p>
-            <cite>- Jane Smith</cite>
+            <p>At Petstagram, we're on a mission to make the world a happier place—one pet post at a time.</p>
+            <cite>- Lecho Lechev</cite>
         </blockquote>
     </div>
 
     <div class="latest-posts">
         <h3>Latest Blog Posts</h3>
         <ul>
-            <li><a href="#">Post Title 1</a></li>
-            <li><a href="#">Post Title 2</a></li>
-            <li><a href="#">Post Title 3</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'index' %}">See our latest posts</a></li>
+                <li><a href="{% url 'details profile' %}">Take a look at our latest user </a></li>
+            {% else %}
+                <li><a href="#">Make sure you have signed in or log in to see our latest posts </a></li>
+                <a href="{% url 'signup user' %}" class="fa-1x">Go Sign In</a>
+            {% endif %}
         </ul>
     </div>
 </div>
@@ -176,11 +186,12 @@
     <div class="footer-container">
         <div class="footer-section">
             <h3>About Us</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo neque vel justo hendrerit.</p>
+            <p>At Petstagram, we're dedicated to online community where pet lovers from all walks of life can come
+                together to share their passion for animals.</p>
         </div>
         <div class="footer-section">
             <h3>Contact Us</h3>
-            <p>Email: info@example.com</p>
+            <p>Email: petsagram@gmail.com</p>
             <p>Phone: +123-456-7890</p>
         </div>
         <div class="footer-section">
@@ -193,7 +204,7 @@
         </div>
     </div>
     <div class="bottom-bar">
-        <p>&copy; 2024 Your Company. All Rights Reserved. | <a href="#">Terms of Service</a> | <a href="#">Privacy
+        <p>&copy; 2024 Petstagram Company. All Rights Reserved. | <a href="#">Terms of Service</a> | <a href="#">Privacy
             Policy</a></p>
     </div>
 </footer>

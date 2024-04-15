@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Guidelines | Petstagram</title>
+    <link rel="stylesheet" href="{% static 'css/terms_of_use.css' %}">
+</head>
+<body>
+<header class="header">
+    <h1 class="page-title">Community Guidelines</h1>
+</header>
+<main class="center-content">
+    <section class="rules-section">
+        <h2 class="section-title">Respect Others</h2>
+        <p class="section-description">Treat everyone—including pets—with kindness and respect.</p>
+        <ul class="guidelines-list">
+            <li class="guideline-item">Be polite in your interactions with others.</li>
+            <li class="guideline-item">Avoid offensive language and behavior.</li>
+            <li class="guideline-item">Listen to and consider different perspectives.</li>
+        </ul>
+    </section>
+    <section class="rules-section">
+        <h2 class="section-title">Content Guidelines</h2>
+        <p class="section-description">Ensure your content is appropriate and follows our guidelines.</p>
+        <ul class="guidelines-list">
+            <li class="guideline-item">Do not post inappropriate or explicit content.</li>
+            <li class="guideline-item">Respect copyright and intellectual property rights.</li>
+            <li class="guideline-item">Report any content that violates our guidelines.</li>
+        </ul>
+    </section>
+    <section class="rules-section">
+        <h2 class="section-title">Pet Posting Guidelines</h2>
+        <p class="section-description">Make sure your pet posts adhere to our community standards.</p>
+        <ul class="guidelines-list">
+            <li class="guideline-item">Only post photos and videos of your own pets.</li>
+            <li class="guideline-item">Avoid sharing content that promotes harm or cruelty towards animals.</li>
+            <li class="guideline-item">Respect other users' pets and avoid making negative comments.</li>
+        </ul>
+    </section>
+
+</main>
+<a href="{% url 'home page' %}" class="go-back">Go back to Petstagram</a>
+</body>
+</html>

@@ -1,4 +1,5 @@
 from django.contrib.auth import models as auth_models
+from django.contrib.auth.context_processors import auth
 from django.contrib.auth.hashers import make_password
 
 

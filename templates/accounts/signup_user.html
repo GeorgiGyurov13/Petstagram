@@ -9,20 +9,34 @@
             <form method="post" action='{% url 'signup user' %}'>
                 {% csrf_token %}
                 <!-- Email input field with placeholder -->
+                {{ form_profile.first_name.label }}
                 {{ form_profile.first_name }}
                 {{ form_profile.first_name.errors }}
+                
+                {{ form_profile.last_name.label }}
                 {{ form_profile.last_name }}
                 {{ form_profile.last_name.errors }}
+                
+                {{ form_profile.date_of_birth.label }}
                 {{ form_profile.date_of_birth }}
                 {{ form_profile.date_of_birth.errors }}
+                
+                {{ form_profile.profile_picture.label }}
                 {{ form_profile.profile_picture }}
                 {{ form_profile.profile_picture.errors }}
+                
+                {{ form_user.email.label }}
                 {{ form_user.email }}
                 {{ form_user.email.errors }}
+                
+                {{ form_user.password1.label }}
                 {{ form_user.password1 }}
                 {{ form_user.password1.errors }}
+                
+                {{ form_user.password2.label }}
                 {{ form_user.password2 }}
                 {{ form_user.password2.errors }}
+                
                 {{ form_user.errors }}
                 {{ form_profile.errors }}
                 

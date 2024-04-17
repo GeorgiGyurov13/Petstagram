@@ -1,6 +1,7 @@
 from django.contrib.auth import forms as auth_forms, get_user_model
 
 from django import forms
+from django.contrib.auth.hashers import make_password
 from django.core.mail import send_mail
 from django.forms import ModelForm
 
@@ -23,9 +24,10 @@ class PetstagramUserCreationForm(auth_forms.UserCreationForm):
     def save(self, commit=True):
         if self.cleaned_data['password1'] != self.cleaned_data['password2']:
             raise Exception('Passwords do not match!')
-
+        print('user register here')
         user = PetstagramUser.objects.create(email=self.cleaned_data['email'],
-                                             password1=self.cleaned_data['password1'])
+                                             password=make_password(self.cleaned_data['password1']))
+        print(user)
         return user
 
 

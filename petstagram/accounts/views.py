@@ -57,7 +57,7 @@ class SignUpView(TemplateView):
 
             login(self.request, user)
 
-            return redirect('home')
+            return redirect('home page')
         except Exception as e:
             if str(e) == 'Passwords do not match!':
                 form_user.add_error('password', 'Passwords do not match!')

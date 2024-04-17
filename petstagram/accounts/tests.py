@@ -44,17 +44,14 @@ class SignoutUserViewTest(TestCase):
 
     def test_sign_out_user_view(self):
         client = Client()
-        # Log in the user
+
         client.force_login(self.user)
-        # Check if user is logged in
+
         self.assertTrue(self.user.is_authenticated)
 
-        # Send signout request
+
         response = client.get(reverse('signout user'))
 
-        # Check if user is logged out
-        # self.assertTrue(self.user.is_authenticated)
-        # Check if user is redirected to index page
         self.assertRedirects(response, reverse('index'))
 
 
@@ -69,16 +66,15 @@ class SignUpUserViewTest(TestCase):
             'password2': 'password123'
         }
 
-        # Send sign up request
+
         response = client.post(reverse('signup user'), form_data)
 
-        # Check if user is created successfully
-        self.assertEqual(response.status_code, 302)  # Redirects to index page upon successful sign up
+        self.assertEqual(response.status_code, 302)
         self.assertTrue(PetstagramUser.objects.filter(email='testuser@example.com').exists())  # User is created
 
-        # Check if user is logged in after sign up
+
         user = authenticate(email='testuser@example.com', password='password123')
-        self.assertIsNotNone(user)  # User is authenticated
+        self.assertIsNotNone(user)
 
 
 class ProfileUpdateViewTest(TestCase):

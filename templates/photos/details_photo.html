@@ -5,7 +5,7 @@
 {% block main_content %}
     <div class="container">
         <div class="col-9">
-            <a href="{% url 'edit photo' pk=object.pk %}">Edit</a>
+            <a href="{% url 'edit photo' pk=object.pk %}" style="background-color: #1d92ff; border-radius: 8px;font-size: 16px; color: #111111;padding: 10px 20px;">Edit</a>
             {% include 'partials/pet_photo_list_item.html' with photo=object %}
 
             <p class="pet-details">{{ object.description }}</p>

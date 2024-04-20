@@ -5,7 +5,7 @@ from django.contrib.auth.hashers import make_password
 from django.core.mail import send_mail
 from django.forms import ModelForm
 
-from petstagram.accounts.models import Profile, PetstagramUser
+from petstagram.accounts.models import Profile, PetstagramUser, Comment
 
 UserModel = get_user_model()
 
@@ -49,3 +49,14 @@ class UserCreationForm(ModelForm):
 class PetstagramChangeForm(auth_forms.UserChangeForm):
     class Meta(auth_forms.UserChangeForm.Meta):
         model = UserModel
+
+
+# forms.py
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['body']  # Include any other fields you want in the form
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['body'].widget = forms.Textarea(attrs={'cols': 40, 'rows': 10, 'placeholder': 'Add comment...'})

@@ -22,7 +22,7 @@
     <a href="{% url 'admin-redirect' %}">Admin</a>
     <img width="50px" class="petstagram-image" src="{% static '/images/free-30-instagram-stories-icons23_122570.png' %}"
          alt="img1">
-    {% if not user.is_authenticated %}
+    {% if not  request.user.is_authenticated %}
         <div class="navbar-right">
             <a href="{% url 'signin user' %}">Login</a>
             <a href="{% url 'signup user' %}">Sign Up</a>
@@ -82,7 +82,7 @@
                     </div>
                 </li>
             </ul>
-            <figure class="service-banner img-holder" style="width: 805; height: 510;">
+            <figure class="service-banner img-holder" style="width: 805px; height: 510;">
                 <img src="{% static '/images/dog-on-road.jpg' %}" width="905" height="710" loading="lazy"
                      alt="service banner"
                      class="img-cover">
@@ -173,7 +173,7 @@
         <ul>
             {% if user.is_authenticated %}
                 <li><a href="{% url 'index' %}">See our latest posts</a></li>
-                <li><a href="{% url 'details profile' %}">Take a look at our latest user </a></li>
+                <li><a href="{% url 'details profile' pk=user.pk%}">Take a look at our latest user </a></li>
             {% else %}
                 <li><a href="#">Make sure you have signed in or log in to see our latest posts </a></li>
                 <a href="{% url 'signup user' %}" class="fa-1x">Go Sign In</a>

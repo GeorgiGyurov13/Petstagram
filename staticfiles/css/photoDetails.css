@@ -1,9 +1,12 @@
 .userDetails a {
     color: initial;
+    margin-top: 8px;
+
 }
 
 .pet-details {
     margin: 5px 0 5px -1px;
+
 }
 
 .comments {
@@ -66,3 +69,4 @@
     width: 20px;
     margin-left: 5px;
 }
+

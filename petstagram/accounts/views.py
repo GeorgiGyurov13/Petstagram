@@ -1,16 +1,22 @@
 from django.contrib.auth.mixins import AccessMixin
-from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from django.contrib.auth import views as auth_views, login, logout
 from django.urls import reverse_lazy, reverse
 from django.views import generic as views
 from django.views.generic import TemplateView, FormView, RedirectView
 
-from petstagram.accounts.forms import PetstagramUserCreationForm, PetstagramChangeForm, ContactForm, UserCreationForm
+from petstagram.accounts.forms import PetstagramUserCreationForm, PetstagramChangeForm, ContactForm, UserCreationForm, \
+    CommentForm
 from petstagram.accounts.models import PetstagramUser, Profile
 from django.shortcuts import render
 from django.core.mail import send_mail
 from django.conf import settings
+
+from petstagram.common.models import PhotoLike
+from petstagram.pets.models import Pet
+from petstagram.photos.models import PetPhoto
 
 
 class OwnerRequiredMixin(AccessMixin):
@@ -78,6 +84,13 @@ class ProfileDetailsView(views.DetailView):
         .all()
 
     template_name = "accounts/details_profile.html"
+
+    def get_object(self, queryset=None):
+        # Fetch the user ID from the URL
+        user_id = self.kwargs.get('pk')
+        # Query the profile associated with the user ID
+        profile = get_object_or_404(Profile, user_id=user_id)
+        return profile
 
 
 class ProfileUpdateView(views.UpdateView):
@@ -157,5 +170,17 @@ class SendEmailView(TemplateView):
 
 
 def about_page(request):
-    team_members = PetstagramUser.objects.all()
+    team_members = Profile.objects.all()
     return render(request, 'accounts/about.html', {'team_members': team_members})
+
+
+def add_comment(request):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            # Process the form data here, such as saving the comment to the database
+            # Redirect to a success page or back to the same page
+            return HttpResponseRedirect('about')  # Redirect to a success page
+    else:
+        form = CommentForm()
+    return render(request, 'partials/pet_photo_list_item.html', {'form': form})

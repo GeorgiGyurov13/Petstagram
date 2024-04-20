@@ -30,8 +30,7 @@ class OwnerRequiredMixin(AccessMixin):
 
 class SignInUserView(auth_views.LoginView):
     template_name = "accounts/signin_user.html"
-    redirect_authenticated_user = True
-    success_url = reverse_lazy('about')
+    success_url = reverse_lazy('home page')
 
 
 class SignUpView(TemplateView):
@@ -75,7 +74,7 @@ class SignUpView(TemplateView):
 
 def signout_user(request):
     logout(request)
-    return redirect('index')
+    return redirect('home page')
 
 
 class ProfileDetailsView(views.DetailView):

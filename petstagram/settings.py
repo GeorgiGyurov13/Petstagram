@@ -4,11 +4,16 @@ from django.urls import reverse_lazy
 
 # `BASE_DIR` should always point to the `manage.py` directory
 BASE_DIR = Path(__file__).resolve().parent.parent
+import environ
+import dj_database_url
+
+env = environ.Env()
+environ.Env.read_env()
 
 SECRET_KEY = "django-insecure-h80@s92%21e^5e+_yib)m3h(b+y+lq#czu**g(+jz8!$^0c+4y"
 
 DEBUG = True
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
 
 INSTALLED_APPS = [
     # Django apps
@@ -62,16 +67,16 @@ WSGI_APPLICATION = "petstagram.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "petstagramivan",
-        "USER": "postgres",
-        "PASSWORD": "ggogata43",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "petstagramivan",
+#         "USER": "postgres",
+#         "PASSWORD": "ggogata43",
+#         "HOST": "127.0.0.1",
+#         "PORT": "5432",
+#     }
+# }
 DEBUG_PROPAGATE_EXCEPTIONS = True
 #
 # AUTH_PASSWORD_VALIDATORS = [
@@ -148,3 +153,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "gyurovgeorgi740@gmail.com"
 EMAIL_HOST_PASSWORD = "vnhmwoauemuqbeyo"
 
+DATABASES = {
+    'default': dj_database_url.parse(env('DATABASE_URL'))
+}

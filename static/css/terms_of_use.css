@@ -1,0 +1,93 @@
+/* Reset default margin and padding */
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Header styles */
+.header {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    color: #007bff;
+}
+
+/* Main content styles */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.rules-section {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.section-title {
+    color: #007bff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.section-description {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.guidelines-list {
+    list-style-type: none;
+    margin-left: 0;
+}
+
+.guideline-item {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Go back link styles */
+.go-back {
+    display: block;
+    margin-top: -20px;
+    text-align: center;
+    background: #007bff;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+    padding: 12px 24px;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 40px;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+    width: 40%;
+    margin-left: 28%;
+}
+
+.go-back:hover {
+    background-color: #0056b3; /* Change background color on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add box shadow on hover */
+}
+
+

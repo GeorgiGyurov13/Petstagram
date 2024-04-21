@@ -1,11 +1,12 @@
 from pathlib import Path
 
 from django.urls import reverse_lazy
+import environ
+import dj_database_url
 
 # `BASE_DIR` should always point to the `manage.py` directory
 BASE_DIR = Path(__file__).resolve().parent.parent
-import environ
-import dj_database_url
+
 
 env = environ.Env()
 environ.Env.read_env()
@@ -103,12 +104,14 @@ USE_I18N = True
 USE_TZ = True
 
 # URL prefix in the client
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 
 # Directories on the file system
-STATICFILES_DIRS = (
+STATICFILES_DIRS = [
     BASE_DIR / "staticfiles",
-)
+]
+
+STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_ROOT = BASE_DIR / 'mediafiles'
 

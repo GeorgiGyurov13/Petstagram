@@ -1,0 +1,174 @@
+.edit-delete {
+    margin-top: 150px;
+}
+
+.login-register-div {
+    margin-top: 13%;
+}
+
+.edit-delete {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgb(185, 228, 243);
+    border: 2px solid rgb(156, 152, 152);
+    padding: 40px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    box-shadow: 10px 10px 10px #888888;
+    height: 55vh;
+}
+
+.edit-delete h2 {
+    text-align: center;
+    margin-top: -10px;
+    font-family: 'Raleway', sans-serif;
+    text-shadow: 1px 1px rgb(65, 63, 63);
+}
+
+.edit-delete label {
+    display: none;
+}
+
+.edit-delete input, select {
+    background-color: rgb(255, 255, 255);
+    border: 0.1px solid rgb(186, 184, 184);
+    border-radius: 3px;
+    height: 32px;
+    padding-left: 2px;
+    margin-top: 10px;
+}
+
+.edit-delete button {
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    border: none;
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+    height: 34px;
+    cursor: pointer;
+}
+
+.edit-delete textarea {
+    position: relative !important;
+}
+
+.edit-delete a {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+}
+
+.edit-detele label a {
+    color: black;
+}
+
+
+/* .edit-photo select {
+
+} */
+
+.edit-photo label {
+    display: initial !important;
+    margin-top: 12px;
+    margin-right: 5px;
+    white-space: nowrap;
+}
+
+.edit-photo textarea {
+    background-color: rgb(255, 255, 255);
+    border: 0.1px solid rgb(186, 184, 184);
+    border-radius: 3px;
+    height: 30px;
+    width: 77.7%;
+    margin-left: -30px;
+    padding-left: 2px;
+    margin-top: 10px;
+}
+
+.edit-photo input {
+    padding: 3px;
+}
+
+.edit-photo p {
+    display: flex;
+}
+
+.delete-btn {
+    background-color: rgb(255, 0, 0);
+}
+
+.edit-btn {
+    background-color: rgb(0, 102, 255);
+}
+
+.add-btn {
+    background-color: rgb(27, 135, 171);
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+.edit-delete button:hover {
+    font-family: "Open Sans", sans-serif;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+}
+
+
+
+
+
+
+.edit-photo {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    color: #007bff;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.pet-form input[type="text"],
+.pet-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.pet-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.pet-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pet-form button:hover {
+    background-color: #0056b3;
+}
+

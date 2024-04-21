@@ -184,7 +184,7 @@ footer {
 .petstagram-section h2 {
     font-size: 24px;
     margin-bottom: 10px;
-    color: #007bff; /* Blue color */
+    color: #007bff;
 }
 
 .petstagram-section p {
@@ -203,28 +203,26 @@ footer {
     color: #555;
 }
 
-/* Reviews container styles */
 .reviews-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Review card styles */
+
 .review-card {
     display: flex;
     margin-bottom: 20px;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 255, 0.1); /* Blue shadow color */
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.1);
     transition: box-shadow 0.3s ease;
 }
 
 .review-card:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 255, 0.2); /* Darker blue shadow color */
+    box-shadow: 0 0 20px rgba(0, 0, 255, 0.2);
 }
 
-/* Review avatar styles */
 .review-avatar {
     flex: 0 0 auto;
     padding: 10px;
@@ -234,12 +232,12 @@ footer {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    border: 2px solid #007bff; /* Blue border color */
+    border: 2px solid #007bff;
     transition: transform 0.3s ease;
 }
 
 .review-avatar img:hover {
-    transform: scale(1.1); /* Enlarge the avatar on hover */
+    transform: scale(1.1);
 }
 
 /* Review content styles */
@@ -249,15 +247,14 @@ footer {
 }
 
 .review-content h3 {
-    color: #007bff; /* Blue text color */
+    color: #007bff;
     margin-bottom: 5px;
 }
 
 .review-content p {
-    color: #666; /* Medium gray text color */
+    color: #666;
 }
 
-/* Fade-in animation for review cards */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -283,7 +280,6 @@ footer {
 }
 
 
-/* Button animation */
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -296,7 +292,6 @@ footer {
     }
 }
 
-/* Sign-up button styles */
 .sign-up-button-container {
     text-align: center;
     margin-top: 20px;
@@ -305,8 +300,8 @@ footer {
 .sign-up-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff; /* Button background color */
-    color: #fff; /* Button text color */
+    background-color: #007bff;
+    color: #fff;
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
@@ -315,11 +310,10 @@ footer {
 }
 
 .sign-up-button:hover {
-    background-color: #0056b3; /* Hovered button background color */
-    animation: pulse 1s infinite; /* Button pulse animation */
+    background-color: #0056b3;
+    animation: pulse 1s infinite;
 }
 
-/* Card container styles */
 .card-container {
     display: flex;
     justify-content: space-around;
@@ -327,7 +321,6 @@ footer {
     margin-top: 30px;
 }
 
-/* Card styles */
 .card {
     width: calc(33.33% - 20px);
     background-color: #f9f9f9;
@@ -341,8 +334,8 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #007bff; /* Icon background color */
-    color: #fff; /* Icon color */
+    background-color: #007bff;
+    color: #fff;
     height: 100px;
 }
 
@@ -358,13 +351,11 @@ footer {
     margin-bottom: 0;
 }
 
-/* Mission container styles */
 .mission-container {
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* Mission content styles */
 .mission-content {
     padding: 20px;
     background-color: #f9f9f9;
@@ -376,16 +367,14 @@ footer {
 .mission-content p {
     font-size: 18px;
     line-height: 1.6;
-    color: #333; /* Text color */
+    color: #333;
 }
 
-/* Team container styles */
 .team-container {
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* Team members styles */
 .team-members {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -418,12 +407,11 @@ footer {
     color: #666;
 }
 
-/* Future plans container styles */
 .future-plans-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f5f5f5; /* Light gray background */
+    background-color: #f5f5f5;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
@@ -433,16 +421,16 @@ footer {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Future plans section styles */
+
 #future-plans h2 {
     font-size: 28px;
-    color: #333; /* Dark gray text color */
+    color: #333;
     margin-bottom: 20px;
 }
 
 #future-plans p {
     font-size: 18px;
-    color: #666; /* Medium gray text color */
+    color: #666;
     margin-bottom: 20px;
 }
 
@@ -453,17 +441,16 @@ footer {
 
 #future-plans li {
     font-size: 16px;
-    color: #666; /* Medium gray text color */
+    color: #666;
     margin-bottom: 10px;
 }
 
-/* Hover effect for list items */
+
 #future-plans li:hover {
     color: #007bff;
     cursor: pointer;
 }
 
-/* Fade-in animation for the whole section */
 @keyframes fadeIn {
     from {
         opacity: 0;

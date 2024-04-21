@@ -169,17 +169,20 @@
     </div>
 
     <div class="latest-posts">
-        <h3>Latest Blog Posts</h3>
+        <h3>Adoption program</h3>
         <ul>
             {% if user.is_authenticated %}
-                <li><a href="{% url 'index' %}">See our latest posts</a></li>
-                <li><a href="{% url 'details profile' pk=user.pk%}">Take a look at our latest user </a></li>
+                <li><a href="{% url 'index' %}">See our adoption program right there</a></li>
+                <a href="{% url 'pet-create' %}" class="fa-1x">Create Adoption</a>
+                <a href="{% url 'pet-list' %}" class="fa-1x">View Adoptions</a>
             {% else %}
-                <li><a href="#">Make sure you have signed in or log in to see our latest posts </a></li>
+                <li><a href="#">Make sure you have signed in or log in to see our latest adoption program </a></li>
                 <a href="{% url 'signup user' %}" class="fa-1x">Go Sign In</a>
             {% endif %}
         </ul>
+    <img src="{% static 'images/dog-on-bed.jpg' %}" alt="Adoption Program" class="adoption-image">
     </div>
+
 </div>
 <!-- Footer -->
 <footer>

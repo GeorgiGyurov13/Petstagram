@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoptable Pets</title>
+    <link rel="stylesheet" href="{% static 'css/adoption.css' %}">
+</head>
+<body>
+<h1>Adoptable Pets</h1>
+<ul>
+    {% for pet in pets %}
+        <li>
+            <h2>{{ pet.name }}</h2>
+            <p><strong>Age:</strong> {{ pet.age }}</p>
+            <p><strong>Gender:</strong> {{ pet.gender }}</p>
+            <p><strong>Description:</strong> {{ pet.description }}</p>
+            <img src="{{ pet.photo.url }}" alt="{{ pet.name }}" width="200">
+            <p><strong>Contact Email:</strong> {{ pet.contact_email }}</p>
+            <form action="{% url 'adopt-pet' %}" method="post">  <!-- Update action URL -->
+                {% csrf_token %}
+                <input type="hidden" name="pet_id" value="{{ pet.pk }}">
+                <button type="submit">Adopt</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

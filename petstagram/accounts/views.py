@@ -148,10 +148,6 @@ class AboutView(TemplateView):
     template_name = 'accounts/about.html'
 
 
-class ServiceView(TemplateView):
-    template_name = 'accounts/service.html'
-
-
 class AdminRedirectView(RedirectView):
     url = reverse_lazy('admin:index')
 

@@ -4,7 +4,7 @@ from django.urls import path, include
 from petstagram.accounts.views import \
     SignUpView, SignInUserView, \
     ProfileDetailsView, \
-    ProfileUpdateView, signout_user, ProfileDeleteView, HomePageView, ContactFormView, AboutView, ServiceView, \
+    ProfileUpdateView, signout_user, ProfileDeleteView, HomePageView, ContactFormView, AboutView, \
     AdminRedirectView, FQAView, TermsOfUseView, SendEmailView, add_comment
 
 urlpatterns = (
@@ -14,7 +14,6 @@ urlpatterns = (
     path("", HomePageView.as_view(), name="home page"),
     path('contact/', ContactFormView.as_view(), name='contact'),
     path('about/', AboutView.as_view(), name='about'),
-    path('services/', ServiceView.as_view(), name='services'),
     path('admin-redirect/', AdminRedirectView.as_view(), name='admin-redirect'),
     path('FQA/', FQAView.as_view(), name='FQA'),
     path('terms-of-use/', TermsOfUseView.as_view(), name='terms_of_use'),

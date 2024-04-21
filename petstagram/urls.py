@@ -10,6 +10,7 @@ urlpatterns = [
     path("pets/", include("petstagram.pets.urls")),
     path("photos/", include("petstagram.photos.urls")),
     path("adoption/", include("petstagram.adoption.urls")),
+    path("events/", include("petstagram.events.urls")),
 ]
 
 if settings.DEBUG:

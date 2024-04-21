@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "petstagram.photos",
     "petstagram.pets",
     "petstagram.adoption",
+    "petstagram.events",
 ]
 
 MIDDLEWARE = [

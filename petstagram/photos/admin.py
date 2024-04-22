@@ -2,18 +2,15 @@ from django.contrib import admin
 
 from petstagram.photos.models import PetPhoto
 
+from django.contrib import admin
+from .models import PetPhoto
 
-@admin.register(PetPhoto)
+
 class PetPhotoAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'location', 'created_at', 'short_description', 'tagged_pets', 'link_to_pet')
+    list_display = ('id', 'photo', 'description', 'location', 'created_at', 'modified_at')
+    list_filter = ('created_at', 'modified_at')
+    search_fields = ('description', 'location')
+    date_hierarchy = 'created_at'
 
-    def short_description(self, obj):
-        return obj.description[:15]
 
-    def tagged_pets(self, obj):
-        return ', '.join(pet.name for pet in obj.pets.all())
-
-    def link_to_pet(self, obj):
-        return u'<a href="/">%s</a>' % obj.pk
-
-    link_to_pet.allow_tags = True
+admin.site.register(PetPhoto, PetPhotoAdmin)

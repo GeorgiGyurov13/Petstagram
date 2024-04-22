@@ -28,7 +28,5 @@ urlpatterns = (
             path("delete/", ProfileDeleteView.as_view(), name="delete profile")
         ]),
     ),
-)
 
-handler404 = 'accounts.views.error_404_view'
-handler500 = 'accounts.views.error_500_view'
+)

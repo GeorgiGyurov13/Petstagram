@@ -202,3 +202,15 @@ def testimonial_view(request):
     return render(request, 'accounts/home_page.html', {'quotes': quotes})
 
 
+from django.shortcuts import render
+
+
+def error_404_view(request, exception):
+    # Render a template with an error message
+    return render(request, 'accounts/404.html', {'message': 'Page not found'})
+
+
+def error_500_view(request):
+    message = "Internal Server Error. Please try again later."
+    return render(request, 'accounts/500.html', {'message': message})
+

@@ -35,6 +35,9 @@ class UserCreationForm(ModelForm):
     class Meta:
         model = Profile
         fields = ('first_name', 'last_name', 'date_of_birth', 'profile_picture')
+        widgets = {
+            'date_of_birth': forms.DateInput(attrs={'type': 'date'}),  # Use HTML5 date input type
+        }
 
     def save(self, user=None, commit=True):
         profile = Profile.objects.create(
@@ -51,3 +54,8 @@ class PetstagramChangeForm(auth_forms.UserChangeForm):
         model = UserModel
 
 
+class LoginForm(forms.Form):
+    email = forms.EmailField(label='Email', max_length=100,
+                             widget=forms.EmailInput(attrs={'placeholder': 'Enter your email'}))
+    password = forms.CharField(label='Password',
+                               widget=forms.PasswordInput(attrs={'placeholder': 'Enter your password'}))

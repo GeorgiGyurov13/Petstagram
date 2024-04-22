@@ -3,12 +3,13 @@ from django.contrib.auth.views import LoginView
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 
-from django.contrib.auth import views as auth_views, login, logout
+from django.contrib.auth import views as auth_views, login, logout, authenticate
 from django.urls import reverse_lazy, reverse
-from django.views import generic as views
+from django.views import generic as views, View
 from django.views.generic import TemplateView, FormView, RedirectView
 
-from petstagram.accounts.forms import PetstagramUserCreationForm, PetstagramChangeForm, ContactForm, UserCreationForm
+from petstagram.accounts.forms import PetstagramUserCreationForm, PetstagramChangeForm, ContactForm, UserCreationForm, \
+    LoginForm
 from petstagram.accounts.models import PetstagramUser, Profile
 from django.shortcuts import render
 from django.core.mail import send_mail
@@ -28,10 +29,27 @@ class OwnerRequiredMixin(AccessMixin):
         return super().dispatch(request, *args, **kwargs)
 
 
-class SignInUserView(LoginView):
-    template_name = "accounts/signin_user.html"
-    redirect_authenticated_user = True
-    success_url = reverse_lazy('home page')
+class LoginView(View):
+    form_class = LoginForm
+    template_name = 'accounts/signin_user.html'
+
+    def get(self, request):
+        form = self.form_class()
+        error_message = None
+        return render(request, self.template_name, {'form': form, 'error_message': error_message})
+
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            user = authenticate(request, email=email, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('home')  # Redirect to home page after successful login
+            else:
+                error_message = "Invalid email or password. Please try again."
+                return render(request, self.template_name, {'form': form, 'error_message': error_message})
 
 
 class SignUpView(TemplateView):
@@ -182,3 +200,5 @@ def testimonial_view(request):
         }
     ]
     return render(request, 'accounts/home_page.html', {'quotes': quotes})
+
+

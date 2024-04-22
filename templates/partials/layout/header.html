@@ -5,11 +5,67 @@
     <link rel="stylesheet" href="{% static 'css/header.css' %}">
 </head>
 <body>
-<div class="navbar">
+<style>
+    .navbar-pet {
+        background-color: #333;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        padding-top: 4px;
+        padding-left: 3px;
+
+
+    }
+
+    .navbar-pet a {
+        border-radius: 8px;
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        transition: transform 0.3s ease;
+    }
+
+    .navbar-pet a:hover {
+        background-color: #007bff;
+        color: #ffffff;
+        transform: translateY(1px);
+    }
+
+    .navbar-right-pet {
+        float: right;
+    }
+    .petstagram-image {
+        margin-left: 130px;
+        height: 80%;
+        margin-top: 2px;
+        margin-bottom: 2px
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .navbar a, .navbar-right-pet {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+
+        .navbar-right-pet {
+            float: none;
+        }
+    }
+</style>
+<div class="navbar-pet">
     {% if request.user.is_authenticated %}
         <a href="{% url 'index' %}">Home</a>
         <a href="{% url 'create pet' %}">Add Pet</a>
         <a href="{% url 'create photo' %}">Add Photo</a>
+        <a href="{% url 'create_event' %}">Add Event</a>
         <a href="{% url 'contact' %}">Contact</a>
         <a href="{% url 'admin-redirect' %}">Admin</a>
     {% else %}
@@ -18,15 +74,18 @@
         <a href="{% url 'FQA' %}">FQA</a>
         <a href="{% url 'contact' %}">Contact</a>
     {% endif %}
+    <img width="50px" class="petstagram-image" src="{% static '/images/free-30-instagram-stories-icons23_122570.png' %}"
+         alt="img1">
     {% if not  request.user.is_authenticated %}
-        <div class="navbar-right">
+        <div class="navbar-right-pet">
             <a href="{% url 'signin user' %}">Login</a>
             <a href="{% url 'signup user' %}">Sign Up</a>
         </div>
     {% else %}
-        <div class="navbar-right">
+        <div class="navbar-right-pet">
             <a href="{% url 'signout user' %}">Sign Out</a>
         </div>
     {% endif %}
+
 </div>
 </body>

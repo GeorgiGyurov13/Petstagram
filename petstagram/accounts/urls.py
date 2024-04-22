@@ -1,15 +1,17 @@
 from django.core.mail import send_mail
+from django.shortcuts import render
 from django.urls import path, include
+from django.conf.urls import handler404, handler500
 
 from petstagram.accounts.views import \
-    SignUpView, SignInUserView, \
+    SignUpView, LoginView, \
     ProfileDetailsView, \
     ProfileUpdateView, signout_user, ProfileDeleteView, HomePageView, ContactFormView, AboutView, \
     AdminRedirectView, FQAView, TermsOfUseView, SendEmailView
 
 urlpatterns = (
     path("signup/", SignUpView.as_view(), name="signup user"),
-    path("signin/", SignInUserView.as_view(), name="signin user"),
+    path("signin/", LoginView.as_view(), name="signin user"),
     path("signout/", signout_user, name="signout user"),
     path("", HomePageView.as_view(), name="home page"),
     path('contact/', ContactFormView.as_view(), name='contact'),
@@ -27,3 +29,6 @@ urlpatterns = (
         ]),
     ),
 )
+
+handler404 = 'accounts.views.error_404_view'
+handler500 = 'accounts.views.error_500_view'

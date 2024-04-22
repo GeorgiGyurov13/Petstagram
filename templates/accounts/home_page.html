@@ -21,14 +21,16 @@
         <a href="{% url 'create_event' %}">Add Event</a>
         <a href="{% url 'contact' %}">Contact</a>
         <a href="{% url 'admin-redirect' %}">Admin</a>
+        <img width="50px" class="petstagram-image" src="{% static '/images/free-30-instagram-stories-icons23_122570.png' %}"
+         alt="img1">
     {% else %}
         <a href="{% url 'index' %}">Home</a>
         <a href="{% url 'about' %}">About</a>
         <a href="{% url 'FQA' %}">FQA</a>
         <a href="{% url 'contact' %}">Contact</a>
-    {% endif %}
-    <img width="50px" class="petstagram-image" src="{% static '/images/free-30-instagram-stories-icons23_122570.png' %}"
+        <img width="50px" class="petstagram-image" src="{% static '/images/free-30-instagram-stories-icons23_122570.png' %}"
          alt="img1">
+    {% endif %}
     {% if not  request.user.is_authenticated %}
         <div class="navbar-right">
             <a href="{% url 'signin user' %}">Login</a>
@@ -164,27 +166,36 @@
     <div class="cta">
         <h3>Terms of use</h3>
         <p>Don't miss out on our latest updates on terms of use</p>
-        <img src="{% static 'images/terms_of_use.png' %}" alt="Adoption Program" class="adoption-image" style="margin-bottom: 16px">
+        <img src="{% static 'images/terms_of_use.png' %}" alt="Adoption Program" class="adoption-image"
+             style="margin-bottom: 16px">
         <a href="{% url 'terms_of_use' %}">Check now!</a>
     </div>
 
     <div class="testimonial">
         <h3>Comments of Users</h3>
+        <p>See our latest comments from users using Petstagram Application!</p>
         {% for quote in quotes %}
             <blockquote>
                 <p>{{ quote.quote }}</p>
                 <cite>- {{ quote.author }}</cite>
             </blockquote>
         {% endfor %}
-        <img src="{% static 'images/comment_image.gif' %}" alt="Adoption Program" class="adoption-image" style="margin-bottom: 20px">
-        <a href="{% url 'comments_view' %}" class="fa-1x">Create your personal comment</a>
+        <img src="{% static 'images/comment_image.gif' %}" alt="Adoption Program" class="adoption-image"
+             style="margin-bottom: 20px">
+        {% if not  request.user.is_authenticated %}
+            <p>Please Sign Up or Log in just before click here!</p>
+            <a href="{% url 'signup user' %}" class="fa-1x">Sing Up</a>
+        {% else %}
+            <a href="{% url 'comments_view' %}" class="fa-1x">Create your personal comment</a>
+        {% endif %}
     </div>
 
     <div class="latest-posts">
         <h3>Adoption program</h3>
+        <p>See our latest features like adopting or creating for adopt pets help us with adoption offers!
+        </p>
         <ul>
             {% if user.is_authenticated %}
-                <li><a href="{% url 'index' %}">See our adoption program right there</a></li>
                 <img src="{% static 'images/dog-on-bed.jpg' %}" alt="Adoption Program" class="adoption-image">
                 <a href="{% url 'pet-create' %}" class="fa-1x">Create Adoption</a>
                 <a href="{% url 'pet-list' %}" class="fa-1x">View Adoptions</a>
@@ -194,7 +205,7 @@
                 <a href="{% url 'signup user' %}" class="fa-1x">Go Sign In</a>
             {% endif %}
         </ul>
-        
+
     </div>
 
 </div>

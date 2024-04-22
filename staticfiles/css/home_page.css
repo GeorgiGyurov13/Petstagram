@@ -181,7 +181,12 @@ body {
     text-decoration: none;
     margin-top: 20px;
 }
+.latest-posts p{
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
 
+}
 .latest-posts ul li a {
     color: #007bff;
     text-decoration: none;

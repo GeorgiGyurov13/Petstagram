@@ -1,17 +1,14 @@
-/* Reset default margin and padding */
 body, h1, h2, p, ul {
     margin: 0;
     padding: 0;
 }
 
-/* Global styles */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f7f7f7;
     color: #333;
 }
 
-/* Header styles */
 .header {
     background-color: #fff;
     padding: 20px;
@@ -23,7 +20,6 @@ body {
     color: #007bff;
 }
 
-/* Main content styles */
 .center-content {
     display: flex;
     flex-direction: column;
@@ -66,7 +62,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* Go back link styles */
 .go-back {
     display: block;
     margin-top: -20px;
@@ -86,8 +81,8 @@ body {
 }
 
 .go-back:hover {
-    background-color: #0056b3; /* Change background color on hover */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add box shadow on hover */
+    background-color: #0056b3;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 

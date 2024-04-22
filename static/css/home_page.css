@@ -13,12 +13,12 @@ body {
 }
 .section {
     flex: 1;
-    background-color: #f0f0f0; /* Light gray background */
+    background-color: #f0f0f0;
     padding: 20px;
     margin: 12px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.6s ease, box-shadow 0.6s ease; /* Added box-shadow transition */
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,38 +37,38 @@ body {
     background-size: cover;
     background-position: center;
     border-radius: 8px;
-    z-index: -1; /* Ensure the background image is behind the content */
+    z-index: -1;
 }
 
 
 .section:hover {
     transform: translateY(-8px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 .section h2 {
-    color: #464343; /* Deep blue color for h2 text */
+    color: #464343;
     font-size: 24px;
     margin-bottom: 10px;
-    transition: color 0.3s ease; /* Added color transition */
+    transition: color 0.3s ease;
 }
 
 .section p {
-    color: black; /* Dark gray color for p text */
+    color: black;
     font-size: 16px;
     line-height: 1.6;
     padding: 6px 10px;
     text-align: center;
     margin-bottom: 10px;
-    transition: color 0.3s ease; /* Added color transition */
+    transition: color 0.3s ease;
 }
 
 .section:nth-child(odd) {
-    background-color: #b2b7bb; /* Deep blue background color for odd sections */
+    background-color: #b2b7bb;
 }
 
 .section:nth-child(even) {
-    background-color: #b2b7bb; /* Light blue background color for even sections */
+    background-color: #b2b7bb;
 }
 
 
@@ -179,8 +179,14 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
     text-decoration: none;
+    margin-top: 20px;
 }
+.latest-posts p{
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
 
+}
 .latest-posts ul li a {
     color: #007bff;
     text-decoration: none;
@@ -192,7 +198,7 @@ body {
 }
 
 .petstagram-image {
-    margin-left: 160px;
+    margin-left: 130px;
     height: 80%;
     margin-top: 2px;
     margin-bottom: 2px
@@ -265,15 +271,15 @@ body {
 .intro-section {
     margin-top: 3.6rem;
     background-image: url('https://th.bing.com/th/id/R.be910db951bafca7bbf5cd2c84600731?rik=gUnyuTcaWMFyZA&riu=http%3a%2f%2fstatic.businessinsider.com%2fimage%2f5484d9d1eab8ea3017b17e29%2fimage.jpg&ehk=ZlAb9lfwIXaM71NHuo2whoDj3oykbAvI2H%2b9ntY42OE%3d&risl=&pid=ImgRaw&r=0'); /* Replace 'background.jpg' with your image filename */
-    background-size: cover; /* Scale the background image to fit within the container */
-    background-repeat: no-repeat; /* Prevent the background image from repeating */
-    background-position: center; /* Center the background image */
-    height: 100vh; /* Set the height to full viewport height */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     object-fit: cover;
-    color: #fff; /* Text color */
+    color: #fff;
 }
 
 .intro-container {
@@ -412,5 +418,11 @@ body {
     height: auto;
     border-radius: 8px;
 }
-
-
+.adoption-image {
+    margin-top: 6px;
+    border-radius: 8px;
+    object-fit: cover;
+    width: 312px;
+    height: 100px;
+    margin-bottom: 16px;
+}

@@ -7,7 +7,6 @@ import dj_database_url
 # `BASE_DIR` should always point to the `manage.py` directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 env = environ.Env()
 environ.Env.read_env()
 
@@ -39,6 +38,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -115,6 +115,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 MEDIA_ROOT = BASE_DIR / 'mediafiles'
 

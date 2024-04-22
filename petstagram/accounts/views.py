@@ -9,7 +9,7 @@ from django.views import generic as views, View
 from django.views.generic import TemplateView, FormView, RedirectView
 
 from petstagram.accounts.forms import PetstagramUserCreationForm, PetstagramChangeForm, ContactForm, UserCreationForm, \
-    LoginForm
+    LoginForm, ProfileUpdateForm
 from petstagram.accounts.models import PetstagramUser, Profile
 from django.shortcuts import render
 from django.core.mail import send_mail
@@ -171,8 +171,8 @@ class AdminRedirectView(RedirectView):
     url = reverse_lazy('admin:index')
 
 
-class FQAView(TemplateView):
-    template_name = 'accounts/FQA.html'
+class FAQView(TemplateView):
+    template_name = 'accounts/FAQ.html'
 
 
 class TermsOfUseView(TemplateView):
@@ -214,3 +214,17 @@ def error_500_view(request):
     message = "Internal Server Error. Please try again later."
     return render(request, 'accounts/500.html', {'message': message})
 
+
+def profile_update(request):
+    if request.method == 'POST':
+        form = ProfileUpdateForm(request.POST, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile_update_success')  # Redirect to a success page
+    else:
+        form = ProfileUpdateForm(instance=request.user.profile)
+    return render(request, 'accounts/profile_update.html', {'form': form})
+
+
+def profile_update_success(request):
+    return render(request, 'accounts/profile_update_success.html')

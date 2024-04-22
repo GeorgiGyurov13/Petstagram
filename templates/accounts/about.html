@@ -18,9 +18,9 @@
         <a href="{% url 'contact' %}">Contact</a>
         <a href="{% url 'admin-redirect' %}">Admin</a>
     {% else %}
-        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'home page' %}">Home</a>
         <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'FQA' %}">FQA</a>
+        <a href="{% url 'FAQ' %}">FAQ</a>
         <a href="{% url 'contact' %}">Contact</a>
     {% endif %}
     <img width="50px" class="petstagram-image" src="{% static '/images/free-30-instagram-stories-icons23_122570.png' %}"
@@ -33,6 +33,7 @@
     {% else %}
         <div class="navbar-right">
             <a href="{% url 'signout user' %}">Sign Out</a>
+            <a href="{% url 'profile_update' %}">Profile</a>
         </div>
     {% endif %}
 

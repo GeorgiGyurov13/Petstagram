@@ -21,15 +21,17 @@
         <a href="{% url 'create_event' %}">Add Event</a>
         <a href="{% url 'contact' %}">Contact</a>
         <a href="{% url 'admin-redirect' %}">Admin</a>
-        <img width="50px" class="petstagram-image" src="{% static '/images/free-30-instagram-stories-icons23_122570.png' %}"
-         alt="img1">
+        <img width="50px" class="petstagram-image"
+             src="{% static '/images/free-30-instagram-stories-icons23_122570.png' %}"
+             alt="img1">
     {% else %}
-        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'home page' %}">Home</a>
         <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'FQA' %}">FQA</a>
+        <a href="{% url 'FAQ' %}">FAQ</a>
         <a href="{% url 'contact' %}">Contact</a>
-        <img width="50px" class="petstagram-image" src="{% static '/images/free-30-instagram-stories-icons23_122570.png' %}"
-         alt="img1">
+        <img width="50px" class="petstagram-image"
+             src="{% static '/images/free-30-instagram-stories-icons23_122570.png' %}"
+             alt="img1">
     {% endif %}
     {% if not  request.user.is_authenticated %}
         <div class="navbar-right">
@@ -39,6 +41,7 @@
     {% else %}
         <div class="navbar-right">
             <a href="{% url 'signout user' %}">Sign Out</a>
+            <a href="{% url 'profile_update' %}">Profile</a>
         </div>
     {% endif %}
 
@@ -182,11 +185,11 @@
         {% endfor %}
         <img src="{% static 'images/comment_image.gif' %}" alt="Adoption Program" class="adoption-image"
              style="margin-bottom: 20px">
-        {% if not  request.user.is_authenticated %}
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'comments_view' %}" class="fa-1x">Create your personal comment</a>
+        {% else %}
             <p>Please Sign Up or Log in just before click here!</p>
             <a href="{% url 'signup user' %}" class="fa-1x">Sing Up</a>
-        {% else %}
-            <a href="{% url 'comments_view' %}" class="fa-1x">Create your personal comment</a>
         {% endif %}
     </div>
 

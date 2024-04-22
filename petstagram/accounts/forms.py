@@ -59,3 +59,9 @@ class LoginForm(forms.Form):
                              widget=forms.EmailInput(attrs={'placeholder': 'Enter your email'}))
     password = forms.CharField(label='Password',
                                widget=forms.PasswordInput(attrs={'placeholder': 'Enter your password'}))
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['first_name', 'last_name', 'date_of_birth', 'profile_picture']

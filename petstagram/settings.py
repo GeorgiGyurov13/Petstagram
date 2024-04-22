@@ -71,16 +71,16 @@ WSGI_APPLICATION = "petstagram.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "petstagramivan",
-        "USER": "postgres",
-        "PASSWORD": "ggogata43",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "petstagramivan",
+#         "USER": "postgres",
+#         "PASSWORD": "ggogata43",
+#         "HOST": "127.0.0.1",
+#         "PORT": "5432",
+#     }
+# }
 DEBUG_PROPAGATE_EXCEPTIONS = True
 #
 # AUTH_PASSWORD_VALIDATORS = [
@@ -160,6 +160,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "gyurovgeorgi740@gmail.com"
 EMAIL_HOST_PASSWORD = "vnhmwoauemuqbeyo"
 
-# DATABASES = {
-#     'default': dj_database_url.parse(env('ASD'))
-# }
+DATABASES = {
+    'default': dj_database_url.parse(env('ASD'))
+}

@@ -32,7 +32,8 @@
             margin-bottom: 15px;
             color: #666;
         }
-        .home-button-event{
+
+        .home-button-event {
             padding: 10px 20px;
             background-color: #007bff;
             color: #fff;
@@ -42,7 +43,8 @@
             text-decoration: none;
             transition: background-color 0.3s;
         }
-        .home-button-event:hover{
+
+        .home-button-event:hover {
             background-color: #0056b3;
         }
 
@@ -65,6 +67,20 @@
         .button:hover {
             background-color: #0056b3;
         }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -75,7 +91,11 @@
     <p><strong>Description:</strong> {{ event.description }}</p>
     <p><strong>Location:</strong> {{ event.location }}</p>
     <p><strong>Date and Time:</strong> {{ event.date_time|date:"F d, Y H:i" }}</p>
+    <p><strong>Likes:</strong> {{ event.likes }}</p>
+    <form action="{% url 'like_event' event.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Like</button>
+    </form>
 </div>
-
 </body>
 </html>

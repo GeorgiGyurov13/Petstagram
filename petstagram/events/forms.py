@@ -9,3 +9,6 @@ class PetEventForm(forms.ModelForm):
         widgets = {
             'date_time': forms.DateTimeInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M')
         }
+
+
+

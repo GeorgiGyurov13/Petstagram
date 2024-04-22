@@ -83,10 +83,4 @@ class Profile(models.Model):
         return self.first_name or self.last_name
 
 
-# models.py
 
-
-class Comment(models.Model):
-    body = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    # Add any other fields you need, such as the user who posted the comment

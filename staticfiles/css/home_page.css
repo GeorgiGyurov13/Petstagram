@@ -179,6 +179,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
     text-decoration: none;
+    margin-top: 20px;
 }
 
 .latest-posts ul li a {
@@ -418,4 +419,5 @@ body {
     object-fit: cover;
     width: 312px;
     height: 100px;
+    margin-bottom: 16px;
 }

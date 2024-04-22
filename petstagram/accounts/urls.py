@@ -5,7 +5,7 @@ from petstagram.accounts.views import \
     SignUpView, SignInUserView, \
     ProfileDetailsView, \
     ProfileUpdateView, signout_user, ProfileDeleteView, HomePageView, ContactFormView, AboutView, \
-    AdminRedirectView, FQAView, TermsOfUseView, SendEmailView, add_comment
+    AdminRedirectView, FQAView, TermsOfUseView, SendEmailView
 
 urlpatterns = (
     path("signup/", SignUpView.as_view(), name="signup user"),
@@ -26,5 +26,4 @@ urlpatterns = (
             path("delete/", ProfileDeleteView.as_view(), name="delete profile")
         ]),
     ),
-    path("add-comment/", add_comment, name='add_comment'),
 )

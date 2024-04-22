@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import AccessMixin
+from django.contrib.auth.views import LoginView
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -7,8 +8,7 @@ from django.urls import reverse_lazy, reverse
 from django.views import generic as views
 from django.views.generic import TemplateView, FormView, RedirectView
 
-from petstagram.accounts.forms import PetstagramUserCreationForm, PetstagramChangeForm, ContactForm, UserCreationForm, \
-    CommentForm
+from petstagram.accounts.forms import PetstagramUserCreationForm, PetstagramChangeForm, ContactForm, UserCreationForm
 from petstagram.accounts.models import PetstagramUser, Profile
 from django.shortcuts import render
 from django.core.mail import send_mail
@@ -28,8 +28,9 @@ class OwnerRequiredMixin(AccessMixin):
         return super().dispatch(request, *args, **kwargs)
 
 
-class SignInUserView(auth_views.LoginView):
+class SignInUserView(LoginView):
     template_name = "accounts/signin_user.html"
+    redirect_authenticated_user = True
     success_url = reverse_lazy('home page')
 
 
@@ -169,13 +170,15 @@ def about_page(request):
     return render(request, 'accounts/about.html', {'team_members': team_members})
 
 
-def add_comment(request):
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            # Process the form data here, such as saving the comment to the database
-            # Redirect to a success page or back to the same page
-            return HttpResponseRedirect('about')  # Redirect to a success page
-    else:
-        form = CommentForm()
-    return render(request, 'partials/pet_photo_list_item.html', {'form': form})
+def testimonial_view(request):
+    quotes = [
+        {
+            'quote': "Petstagram is more than just an app—it's a family of pet enthusiasts united by their love for all creatures great and small.",
+            'author': "Ivan Petrov"
+        },
+        {
+            'quote': "At Petstagram, we're on a mission to make the world a happier place—one pet post at a time.",
+            'author': "Lecho Lechev"
+        }
+    ]
+    return render(request, 'accounts/home_page.html', {'quotes': quotes})

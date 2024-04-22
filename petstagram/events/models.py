@@ -7,3 +7,6 @@ class PetEvent(models.Model):
     description = models.TextField()
     location = models.CharField(max_length=100)
     date_time = models.DateTimeField()
+    likes = models.IntegerField(default=0)
+
+

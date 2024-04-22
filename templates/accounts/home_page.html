@@ -45,10 +45,15 @@
     <div class="intro-container">
         <h1>Welcome to Petstagram</h1>
         <p>Your ultimate destination for pet lovers!</p>
-        <a href="{% url 'signup user' %}" class="btn">Explore Now</a>
+        {% if not  request.user.is_authenticated %}
+            <a href="{% url 'signup user' %}" class="btn">Explore Now</a>
+        {% else %}
+            <a href="#section-service-id" class="btn" onclick="scrollToSection()">Explore Now</a>
+        {% endif %}
+
     </div>
 </section>
-<section class="section service">
+<section class="section service" id="section-service-id">
     <div class="container-advantage">
         <h2 class="h2 section-title">
             What Advantages does Petstagram have?
@@ -89,7 +94,7 @@
                     </div>
                 </li>
             </ul>
-            <figure class="service-banner img-holder" style="width: 805px; height: 510;">
+            <figure class="service-banner img-holder" style="width: 805px; height: 510px;">
                 <img src="{% static '/images/dog-on-road.jpg' %}" width="905" height="710" loading="lazy"
                      alt="service banner"
                      class="img-cover">
@@ -159,20 +164,20 @@
     <div class="cta">
         <h3>Terms of use</h3>
         <p>Don't miss out on our latest updates on terms of use</p>
+        <img src="{% static 'images/terms_of_use.png' %}" alt="Adoption Program" class="adoption-image" style="margin-bottom: 16px">
         <a href="{% url 'terms_of_use' %}">Check now!</a>
     </div>
 
     <div class="testimonial">
-        <h3>Quotes of Users</h3>
-        <blockquote>
-            <p>Petstagram is more than just an app—it's a family of pet enthusiasts united by their love for all
-                creatures great and small. </p>
-            <cite>- Ivan Petrov</cite>
-        </blockquote>
-        <blockquote>
-            <p>At Petstagram, we're on a mission to make the world a happier place—one pet post at a time.</p>
-            <cite>- Lecho Lechev</cite>
-        </blockquote>
+        <h3>Comments of Users</h3>
+        {% for quote in quotes %}
+            <blockquote>
+                <p>{{ quote.quote }}</p>
+                <cite>- {{ quote.author }}</cite>
+            </blockquote>
+        {% endfor %}
+        <img src="{% static 'images/comment_image.gif' %}" alt="Adoption Program" class="adoption-image" style="margin-bottom: 20px">
+        <a href="{% url 'comments_view' %}" class="fa-1x">Create your personal comment</a>
     </div>
 
     <div class="latest-posts">
@@ -180,14 +185,16 @@
         <ul>
             {% if user.is_authenticated %}
                 <li><a href="{% url 'index' %}">See our adoption program right there</a></li>
+                <img src="{% static 'images/dog-on-bed.jpg' %}" alt="Adoption Program" class="adoption-image">
                 <a href="{% url 'pet-create' %}" class="fa-1x">Create Adoption</a>
                 <a href="{% url 'pet-list' %}" class="fa-1x">View Adoptions</a>
             {% else %}
                 <li><a href="#">Make sure you have signed in or log in to see our latest adoption program </a></li>
+                <img src="{% static 'images/dog-on-bed.jpg' %}" alt="Adoption Program" class="adoption-image">
                 <a href="{% url 'signup user' %}" class="fa-1x">Go Sign In</a>
             {% endif %}
         </ul>
-        <img src="{% static 'images/dog-on-bed.jpg' %}" alt="Adoption Program" class="adoption-image">
+        
     </div>
 
 </div>
@@ -218,6 +225,6 @@
             Policy</a></p>
     </div>
 </footer>
-
+<script src="{% static 'js/delay.js' %}"></script>
 </body>
 </html>

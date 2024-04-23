@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Feedbacks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        .feedback-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .feedback {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .feedback-info {
+            margin-bottom: 10px;
+        }
+
+        .feedback-info span {
+            font-weight: bold;
+        }
+
+        .feedback-comment {
+            margin-bottom: 10px;
+        }
+
+        .back-button {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-button a {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-button a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="feedback-container">
+    <h1>All Feedbacks</h1>
+
+    {% if feedbacks %}
+        {% for feedback in feedbacks %}
+            <div class="feedback">
+                <div class="feedback-info">
+                    <span>Helpful:</span> {{ feedback.helpful }}<br>
+                    <span>Created At:</span> {{ feedback.created_at }}<br>
+                    <span>Created By:</span> {{ feedback.user.username }}
+                </div>
+                <div class="feedback-comment">
+                    <span>Comment:</span> {{ feedback.comment }}
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No feedbacks available.</p>
+    {% endif %}
+    <div class="back-button">
+        <a href="{% url 'home page' %}">Go Back to Home</a>
+    </div>
+</div>
+</body>
+</html>

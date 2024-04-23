@@ -171,10 +171,6 @@ class AdminRedirectView(RedirectView):
     url = reverse_lazy('admin:index')
 
 
-class FAQView(TemplateView):
-    template_name = 'accounts/FAQ.html'
-
-
 class TermsOfUseView(TemplateView):
     template_name = 'accounts/terms_of_use.html'
 

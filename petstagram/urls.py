@@ -12,7 +12,7 @@ urlpatterns = [
     path("adoption/", include("petstagram.adoption.urls")),
     path("events/", include("petstagram.events.urls")),
     path("comments/", include("petstagram.comments.urls")),
-
+    path("faq/", include("petstagram.faq.urls")),
 ]
 handler404 = 'petstagram.accounts.views.error_404_view'
 handler500 = 'petstagram.accounts.views.error_500_view'

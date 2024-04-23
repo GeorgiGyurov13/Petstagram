@@ -47,17 +47,34 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
+        a.return-home {
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            background-color: #1d92ff;
+            color: white;
+            padding: 10px 20px; 
+            border-radius: 5px;
+            font-size: 16px; 
+            transition: background-color 0.3s ease;
+        }
+        
+        a.return-home:hover {
+            background-color: #0e5cad;
+        }
     </style>
 </head>
 <body>
-    <div class="pet-info">
-        <h1>Pet Adopted Successfully!</h1>
-        <h2>{{ pet.name }}</h2>
-        <p><strong>Age:</strong> {{ pet.age }}</p>
-        <p><strong>Gender:</strong> {{ pet.gender }}</p>
-        <p><strong>Description:</strong> {{ pet.description }}</p>
-        <img src="{{ pet.photo.url }}" alt="{{ pet.name }}">
-        <p><strong>Contact Email:</strong> {{ pet.contact_email }}</p>
-    </div>
+<div class="pet-info">
+    <h1>Pet Adopted Successfully!</h1>
+    <h2>{{ pet.name }}</h2>
+    <p><strong>Age:</strong> {{ pet.age }}</p>
+    <p><strong>Gender:</strong> {{ pet.gender }}</p>
+    <p><strong>Description:</strong> {{ pet.description }}</p>
+    <img src="{{ pet.photo.url }}" alt="{{ pet.name }}">
+    <p><strong>Contact Email:</strong> {{ pet.contact_email }}</p>
+    <a href="{% url 'home page' %}" class="return-home">Return Home</a>
+</div>
 </body>
 </html>

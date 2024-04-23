@@ -7,8 +7,28 @@
     <title>Adoptable Pets</title>
     <link rel="stylesheet" href="{% static 'css/adoption.css' %}">
 </head>
+<style>
+a.home {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #1d92ff; 
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    margin-right:100px;
+}
+
+a.home:hover {
+    background-color: #0e5cad;
+}
+
+</style>
 <body>
 <h1>Adoptable Pets</h1>
+<a href="{% url 'home page' %}" class="home">Go Home</a> <!-- Add this line for the home button -->
 <ul>
     {% for pet in pets %}
         <li>

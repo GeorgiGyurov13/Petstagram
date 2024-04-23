@@ -120,7 +120,7 @@
         <form method="POST" action="{% url 'submit_feedback' %}">
             {% csrf_token %}
             <div class="form-group">
-                <label>Was this FAQ helpful?</label>
+                <label>Was this Feedback helpful for you?</label>
                 <div class="btn-group">
                     <button type="button" class="feedback-option" onclick="selectOption(this, 'Yes')">Yes</button>
                     <button type="button" class="feedback-option" onclick="selectOption(this, 'No')">No</button>

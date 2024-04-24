@@ -49,7 +49,6 @@ class SignoutUserViewTest(TestCase):
 
         self.assertTrue(self.user.is_authenticated)
 
-
         response = client.get(reverse('signout user'))
 
         self.assertRedirects(response, reverse('index'))
@@ -66,12 +65,10 @@ class SignUpUserViewTest(TestCase):
             'password2': 'password123'
         }
 
-
         response = client.post(reverse('signup user'), form_data)
 
         self.assertEqual(response.status_code, 302)
         self.assertTrue(PetstagramUser.objects.filter(email='testuser@example.com').exists())  # User is created
-
 
         user = authenticate(email='testuser@example.com', password='password123')
         self.assertIsNotNone(user)
@@ -218,3 +215,40 @@ class ProfileModelTest(TestCase):
             user=self.user
         )
         self.assertEqual(profile.full_name, "Doe")
+
+
+class PetstagramUserModelTestCase(TestCase):
+    def setUp(self):
+        self.user = PetstagramUser.objects.create_user(email='test@example.com', password='testpassword')
+
+    def test_user_creation(self):
+        self.assertEqual(self.user.email, 'test@example.com')
+        self.assertTrue(self.user.check_password('testpassword'))
+        self.assertTrue(self.user.is_active)
+        self.assertFalse(self.user.is_staff)
+        self.assertIsNotNone(self.user.date_joined)
+
+    def test_user_string_representation(self):
+        self.assertEqual(str(self.user), self.user.email)
+
+
+class ProfileModelTestCase(TestCase):
+    def setUp(self):
+        self.user = PetstagramUser.objects.create_user(email='test@example.com', password='testpassword')
+        self.profile = Profile.objects.create(
+            first_name='Ivan',
+            last_name='Ivanov',
+            date_of_birth='1990-01-01',
+            profile_picture='https://example.com/profile.jpg',
+            user=self.user
+        )
+
+    def test_profile_creation(self):
+        self.assertEqual(self.profile.first_name, 'Ivan')
+        self.assertEqual(self.profile.last_name, 'Ivanov')
+        self.assertEqual(self.profile.date_of_birth, '1990-01-01')
+        self.assertEqual(self.profile.profile_picture, 'https://example.com/profile.jpg')
+        self.assertEqual(self.profile.user, self.user)
+
+    def test_full_name_property(self):
+        self.assertEqual(self.profile.full_name, 'Ivan Ivanov')

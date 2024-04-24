@@ -8,14 +8,6 @@ from django.utils import timezone
 
 from petstagram.accounts.managers import PetstagramUserManager
 
-'''
-# Auth in Django:
-
-1. Use built-in user - works out-of-the-box
-2. Use built-in user only for auth and define `Profile` model for user data
-3. Define a custom user model for auth and define `Profile` model for user data  
-'''
-
 
 class PetstagramUser(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     # password from `AbstractBaseUser`

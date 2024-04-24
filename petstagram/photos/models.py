@@ -46,7 +46,7 @@ class PetPhoto(models.Model):
         null=False,
         validators=(
             # validate_image_size_less_than_5mb,
-            MaxFileSizeValidator(limit_value=SIZE_5_MB),
+            # MaxFileSizeValidator(limit_value=SIZE_5_MB),
         )
     )
 
@@ -68,10 +68,13 @@ class PetPhoto(models.Model):
     pets = models.ManyToManyField(Pet)
 
     created_at = models.DateTimeField(
-        auto_now_add=True,  # Done only on `create`
+        auto_now_add=True,
     )
 
     modified_at = models.DateTimeField(
         auto_now=True,  # On every save
     )
     # user = models.ForeignKey(to=UserModel, on_delete=models.CASCADE)
+
+    likes_count = models.IntegerField(default=0)
+

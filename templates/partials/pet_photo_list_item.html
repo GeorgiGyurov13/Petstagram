@@ -30,22 +30,55 @@
     <div class="bottom">
         <div class="actionBtns">
             <div class="left">
-                <span class="heart">
-                    <a href="{% url 'like_pet_photo' pk=photo.pk %}">
-                        {% if photo.photolike_set.count > 0 %}
-                            <i class="fa-solid fa-heart" style="color: #ed4040;"></i>
+            <span class="heart">
+                <form id="like-form-{{ photo.pk }}" data-photo-id="{{ photo.pk }}"
+                      action="{% url 'like_pet_photo' pk=photo.pk %}" method="post">
+                    {% csrf_token %}
+                    <button type="button" class="heart-btn" onclick="likeOrDislikePhoto({{ photo.pk }})">
+                        {% if photo.likes_count > 0 %}
+                            <i id="heart-icon-{{ photo.pk }}" class="fa-solid fa-heart" style="color: #ed4040;"></i>
                         {% else %}
-                            <i class="fa-regular fa-heart"></i>
+                            <i id="heart-icon-{{ photo.pk }}" class="fa-regular fa-heart"></i>
                         {% endif %}
-                    </a>
-                </span>
-                <a href="#">
-                    <i class="fa-solid fa-share"></i>
-                </a>
+                    </button>
+                </form>
+            </span>
             </div>
         </div>
 
-        <p class="likes">{{ photo.photolike_set.count }} likes</p>
+        <p class="likes" id="likes-count-{{ photo.pk }}">{{ photo.likes_count }} likes</p>
+
+        <script>
+            function likeOrDislikePhoto(photoId) {
+                const form = document.getElementById('like-form-' + photoId);
+                const formData = new FormData(form);
+
+                fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        const likesCountElement = document.getElementById(`likes-count-${photoId}`);
+                        likesCountElement.textContent = data.likes_count;
+
+                        const heartIcon = document.getElementById(`heart-icon-${photoId}`);
+                        if (data.likes_count > 0) {
+                            heartIcon.classList.remove('fa-regular');
+                            heartIcon.classList.add('fa-solid');
+                            heartIcon.style.color = '#ed4040';
+                        } else {
+                            heartIcon.classList.remove('fa-solid');
+                            heartIcon.classList.add('fa-regular');
+                            heartIcon.style.color = '';
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+        </script>
 
         {% for pet in photo.pets.all %}
             <a href="{% url 'details pet' username=pet.name pet_slug=pet.slug %}">
@@ -61,13 +94,13 @@
 
         <h5 class="postTime">{{ photo.created_at|date:'d/m/Y' }}</h5>
 
-{#        <div class="addComments">#}
-{#            <form method="post" action="{% url 'add_comment' %}">#}
-{#                {% csrf_token %}#}
-{#                {{ form.as_p }}#}
-{#                <button type="submit">Post</button>#}
-{#            </form>#}
-{#        </div>#}
+        {#        <div class="addComments">#}
+        {#            <form method="post" action="{% url 'add_comment' %}">#}
+        {#                {% csrf_token %}#}
+        {#                {{ form.as_p }}#}
+        {#                <button type="submit">Post</button>#}
+        {#            </form>#}
+        {#        </div>#}
 
     </div>
 </div>

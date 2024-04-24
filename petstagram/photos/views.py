@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.http import JsonResponse, HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views import generic as views
 
@@ -38,3 +39,18 @@ class PetPhotoEditView(views.UpdateView):
         return reverse("details photo", kwargs={
             "pk": self.object.pk,
         })
+
+
+def like_pet_photo(request, pk):
+    photo = get_object_or_404(PetPhoto, pk=pk)
+
+    # Toggle like/dislike
+    if request.user.is_authenticated:
+        if photo.likes_count > 0:
+            photo.likes_count -= 1
+        else:
+            photo.likes_count += 1
+
+        photo.save()
+
+    return JsonResponse({'likes_count': photo.likes_count})

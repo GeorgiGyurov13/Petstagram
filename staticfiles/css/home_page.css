@@ -98,7 +98,21 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
+.cta a {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
 
+.cta a:hover {
+    background-color: #0056b3;
+}
 .cta h3, .testimonial h3, .latest-posts h3 {
     margin-top: 0;
     color: #333;
@@ -425,4 +439,77 @@ body {
     width: 312px;
     height: 100px;
     margin-bottom: 16px;
+}
+.fa-1x:hover{
+    background-color: #0056b3;
+}
+
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar a {
+        margin: 5px 0;
+        padding: 5px 10px;
+    }
+
+    .navbar-right {
+        margin-top: 10px;
+    }
+
+    .petstagram-image {
+        margin-top: 10px;
+    }
+
+    .intro-section {
+        padding: 20px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .service-item {
+        margin-bottom: 20px;
+    }
+
+    .service-banner {
+        width: 100%;
+        height: auto;
+    }
+
+    .service-list {
+        flex-direction: column;
+
+        .service-item {
+            text-align: center;
+        }
+
+    }
+}
+@media (max-width: 768px) {
+    .additional-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta,
+    .testimonial,
+    .latest-posts {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .cta img,
+    .testimonial img,
+    .latest-posts img {
+        margin-bottom: 10px;
+    }
+
+    .testimonial blockquote {
+        margin-bottom: 15px;
+    }
 }

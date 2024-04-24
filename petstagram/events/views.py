@@ -24,8 +24,26 @@ def create_event(request):
     return render(request, 'events/create_event.html', {'form': form})
 
 
+# def like_event(request, event_id):
+#     event = get_object_or_404(PetEvent, id=event_id)
+#     event.likes += 1
+#     event.save()
+#     return redirect('event_detail', event_id=event_id)
+
 def like_event(request, event_id):
     event = get_object_or_404(PetEvent, id=event_id)
-    event.likes += 1
+    session_key = request.session.session_key
+
+    liked_events = request.session.get('liked_events', [])
+    if event_id in liked_events:
+        event.likes -= 1
+        liked_events.remove(event_id)
+    else:
+        event.likes += 1
+        liked_events.append(event_id)
+
+    request.session['liked_events'] = liked_events
+    request.session.save()
+
     event.save()
     return redirect('event_detail', event_id=event_id)

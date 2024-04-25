@@ -1,15 +1,16 @@
 from django.contrib.auth.mixins import AccessMixin
 from django.contrib.auth.views import LoginView
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 from django.contrib.auth import views as auth_views, login, logout, authenticate
 from django.urls import reverse_lazy, reverse
+from django.utils.crypto import get_random_string
 from django.views import generic as views, View
 from django.views.generic import TemplateView, FormView, RedirectView
 
 from petstagram.accounts.forms import PetstagramUserCreationForm, PetstagramChangeForm, ContactForm, UserCreationForm, \
-    LoginForm, ProfileUpdateForm
+    LoginForm, ProfileUpdateForm, ForgotPasswordForm, ResetPasswordForm
 from petstagram.accounts.models import PetstagramUser, Profile
 from django.shortcuts import render
 from django.core.mail import send_mail
@@ -46,7 +47,7 @@ class LoginView(View):
             user = authenticate(request, email=email, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('home')  # Redirect to home page after successful login
+                return redirect('home page')
             else:
                 error_message = "Invalid email or password. Please try again."
                 return render(request, self.template_name, {'form': form, 'error_message': error_message})
@@ -224,3 +225,59 @@ def profile_update(request):
 
 def profile_update_success(request):
     return render(request, 'accounts/profile_update_success.html')
+
+
+def forgot_password(request):
+    if request.method == 'POST':
+        form = ForgotPasswordForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            try:
+                user = PetstagramUser.objects.get(email=email)
+            except PetstagramUser.DoesNotExist:
+                return HttpResponse('User with this email does not exist.')
+
+            token = get_random_string(length=32)  # Generate a unique token
+            user.profile.password_reset_token = token
+            user.profile.save()
+
+            # Send email with password reset link
+            reset_link = f'https://petstagram-pwz5.onrender.com/reset-password/{token}/'
+            send_mail(
+                'Reset your password',
+                f'Click the following link to reset your password: {reset_link}',
+                'from@example.com',
+                [email],
+                fail_silently=False,
+            )
+            return HttpResponse('An email has been sent with instructions to reset your password.')
+    else:
+        form = ForgotPasswordForm()
+    return render(request, 'accounts/forgot_password.html', {'form': form})
+
+
+def reset_password(request, token):
+    try:
+        user = PetstagramUser.objects.get(profile__password_reset_token=token)
+    except PetstagramUser.DoesNotExist:
+        return HttpResponse('Invalid token.')
+
+    if request.method == 'POST':
+        form = ResetPasswordForm(request.POST)
+        if form.is_valid():
+            new_password = form.cleaned_data['new_password']
+            confirm_new_password = form.cleaned_data['confirm_new_password']
+            if new_password == confirm_new_password:
+                user.set_password(new_password)
+                user.profile.password_reset_token = ''
+                user.profile.save()
+                user.save()
+                # Log the user in with the new password
+                user = authenticate(username=user.email, password=new_password)
+                login(request, user)
+                return HttpResponse('Your password has been reset successfully.')
+            else:
+                return HttpResponse('Passwords do not match.')
+    else:
+        form = ResetPasswordForm()
+    return render(request, 'accounts/reset_password.html', {'form': form})

@@ -30,6 +30,7 @@ class PetstagramUser(auth_models.AbstractBaseUser, auth_models.PermissionsMixin)
     is_active = models.BooleanField(
         default=True,
     )
+    password_reset_token = models.CharField(max_length=100, blank=True, null=True)
 
     USERNAME_FIELD = "email"
 
@@ -66,6 +67,7 @@ class Profile(models.Model):
         PetstagramUser,
         on_delete=models.CASCADE,
     )
+
 
     @property
     def full_name(self):

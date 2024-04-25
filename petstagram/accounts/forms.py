@@ -65,3 +65,12 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['first_name', 'last_name', 'date_of_birth', 'profile_picture']
+
+
+class ForgotPasswordForm(forms.Form):
+    email = forms.EmailField(label='Email')
+
+# forms.py
+class ResetPasswordForm(forms.Form):
+    new_password = forms.CharField(label='New Password', widget=forms.PasswordInput)
+    confirm_new_password = forms.CharField(label='Confirm New Password', widget=forms.PasswordInput)

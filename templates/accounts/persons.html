@@ -84,7 +84,7 @@
                     </div>
                 {% endfor %}
             {% else %}
-                <p>No members yet!</p>
+                <p style="margin-left: 24px;">Please <a href="{% url 'signin user' %}" style="color: #1565c0">Log in</a> or <a href="{% url 'signup user' %}" style="color: #1565c0">Sign Up</a> to see members!</p>
             {% endif %}
         </div>
     </div>

@@ -237,12 +237,12 @@ def forgot_password(request):
             except PetstagramUser.DoesNotExist:
                 return HttpResponse('User with this email does not exist.')
 
-            token = get_random_string(length=32)  # Generate a unique token
-            user.profile.password_reset_token = token
-            user.profile.save()
+            token = get_random_string(length=32)
 
-            # Send email with password reset link
-            reset_link = f'https://petstagram-pwz5.onrender.com/reset-password/{token}/'
+            user.password_reset_token = token
+            user.save()
+
+            reset_link = f'http://127.0.0.1:8000/reset-password/{token}/'
             send_mail(
                 'Reset your password',
                 f'Click the following link to reset your password: {reset_link}',
@@ -250,7 +250,7 @@ def forgot_password(request):
                 [email],
                 fail_silently=False,
             )
-            return HttpResponse('An email has been sent with instructions to reset your password.')
+            return render(request, 'accounts/check_email.html')
     else:
         form = ForgotPasswordForm()
     return render(request, 'accounts/forgot_password.html', {'form': form})
@@ -258,7 +258,7 @@ def forgot_password(request):
 
 def reset_password(request, token):
     try:
-        user = PetstagramUser.objects.get(profile__password_reset_token=token)
+        user = PetstagramUser.objects.get(password_reset_token=token)
     except PetstagramUser.DoesNotExist:
         return HttpResponse('Invalid token.')
 
@@ -269,15 +269,18 @@ def reset_password(request, token):
             confirm_new_password = form.cleaned_data['confirm_new_password']
             if new_password == confirm_new_password:
                 user.set_password(new_password)
-                user.profile.password_reset_token = ''
-                user.profile.save()
                 user.save()
-                # Log the user in with the new password
+                user.password_reset_token = ''
+                user.save()
+
                 user = authenticate(username=user.email, password=new_password)
                 login(request, user)
-                return HttpResponse('Your password has been reset successfully.')
+
+                return render(request, 'accounts/password_chaged.html')
             else:
-                return HttpResponse('Passwords do not match.')
+                return render(request, 'accounts/reset_password.html',
+                              {'form': form, 'error_message': 'Passwords do not match.'})
     else:
         form = ResetPasswordForm()
+
     return render(request, 'accounts/reset_password.html', {'form': form})

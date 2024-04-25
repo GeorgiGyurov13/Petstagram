@@ -70,7 +70,7 @@ class ProfileUpdateForm(forms.ModelForm):
 class ForgotPasswordForm(forms.Form):
     email = forms.EmailField(label='Email')
 
-# forms.py
+
 class ResetPasswordForm(forms.Form):
     new_password = forms.CharField(label='New Password', widget=forms.PasswordInput)
     confirm_new_password = forms.CharField(label='Confirm New Password', widget=forms.PasswordInput)

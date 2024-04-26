@@ -36,7 +36,7 @@ a.home:hover {
             <p><strong>Age:</strong> {{ pet.age }}</p>
             <p><strong>Gender:</strong> {{ pet.gender }}</p>
             <p><strong>Description:</strong> {{ pet.description }}</p>
-            <img src="{{ pet.photo.url }}" alt="{{ pet.name }}" width="200">
+            <img src="{{ pet.photo }}" alt="{{ pet.name }}" width="200">
             <p><strong>Contact Email:</strong> {{ pet.contact_email }}</p>
             <form action="{% url 'adopt-pet' %}" method="post">  <!-- Update action URL -->
                 {% csrf_token %}

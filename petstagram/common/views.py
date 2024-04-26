@@ -55,7 +55,6 @@ class IndexView(views.ListView):
 
         return queryset.filter(**filter_query)
 
-
 def like_pet_photo(request, pk):
     # pet_photo_like = PhotoLike.objects.first(pk=pk, user=request.user)
     pet_photo_like = PhotoLike.objects \

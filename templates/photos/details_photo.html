@@ -11,14 +11,6 @@
 
             <h5 class="postTime">{{ object.created_at }}</h5>
 
-            <!-- Display the image -->
-            <img src="{{ object.image.url }}" alt="Image">
-
-            <!-- Button to download the image -->
-            <a href="{% url 'download_image' image_id=object.pk %}" download>
-                <button>Download Image</button>
-            </a>
-
             <div class="comments">
                 {% for comment in object.photocomment_set.all %}
                     <div class="top">

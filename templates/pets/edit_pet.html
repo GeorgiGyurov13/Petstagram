@@ -14,6 +14,6 @@
             {% csrf_token %}
         </form>
         <h3>Current image: </h3>
-        <img height="50" src="{{ object.pet_photo }}" alt="Image of {{ object.name }}">
+        <img height="150px" src="{{ object.pet_photo }}" alt="Image of {{ object.name }}" style="object-fit: cover">
     </div>
 {% endblock %}

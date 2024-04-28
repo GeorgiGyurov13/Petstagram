@@ -16,6 +16,7 @@ urlpatterns = [
 ]
 handler404 = 'petstagram.accounts.views.error_404_view'
 handler500 = 'petstagram.accounts.views.error_500_view'
+# handler403 = 'petstagram.accounts.views.error_403_view'
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

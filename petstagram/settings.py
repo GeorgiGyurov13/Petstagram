@@ -13,7 +13,7 @@ environ.Env.read_env()
 SECRET_KEY = "django-insecure-h80@s92%21e^5e+_yib)m3h(b+y+lq#czu**g(+jz8!$^0c+4y"
 
 DEBUG = False
-PRODUCTION = True
+PRODUCTION = False
 ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
@@ -157,7 +157,7 @@ if not PRODUCTION:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
-            "NAME": "petstagramivan",
+            "NAME": "petstagrammain",
             "USER": "postgres",
             "PASSWORD": "ggogata43",
             "HOST": "127.0.0.1",

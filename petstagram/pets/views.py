@@ -33,7 +33,7 @@ class PetCreateView(auth_mixin.LoginRequiredMixin, views.CreateView):
         return form
 
 
-class PetEditView(OwnerRequiredMixin, views.UpdateView):
+class PetEditView(views.UpdateView):
     model = Pet  # queryset = Pet.objects.all()
     form_class = PetEditForm
     template_name = "pets/edit_pet.html"
@@ -65,7 +65,7 @@ class PetDetailView(auth_mixin.LoginRequiredMixin, views.DetailView):
     slug_url_kwarg = "pet_slug"  # name of param in URL
 
 
-class PetDeleteView(OwnerRequiredMixin, auth_mixin.LoginRequiredMixin, views.DeleteView):
+class PetDeleteView(auth_mixin.LoginRequiredMixin, views.DeleteView):
     model = Pet
     form_class = PetDeleteForm
 

@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth.views import LoginView
 from django.shortcuts import redirect
+from django.shortcuts import render, redirect
 
 from petstagram.common.models import PhotoLike
 
@@ -55,6 +56,7 @@ class IndexView(views.ListView):
 
         return queryset.filter(**filter_query)
 
+
 def like_pet_photo(request, pk):
     # pet_photo_like = PhotoLike.objects.first(pk=pk, user=request.user)
     pet_photo_like = PhotoLike.objects \
@@ -68,3 +70,5 @@ def like_pet_photo(request, pk):
         PhotoLike.objects.create(pet_photo_id=pk)
 
     return redirect(request.META.get('HTTP_REFERER') + f"#photo-{pk}")
+
+

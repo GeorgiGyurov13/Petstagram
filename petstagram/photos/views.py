@@ -54,3 +54,4 @@ def like_pet_photo(request, pk):
         photo.save()
 
     return JsonResponse({'likes_count': photo.likes_count})
+

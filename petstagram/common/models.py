@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 
+from petstagram.accounts.models import PetstagramUser
 from petstagram.photos.models import PetPhoto
 
 UserModel = get_user_model()
@@ -39,5 +40,8 @@ class PhotoLike(models.Model):
 
     user = models.ForeignKey(to=UserModel, on_delete=models.CASCADE)
 
+
 # photo_like = PhotoLike.objects \
 #         .filter(pet_photo_id=pet_photo.pk, user=request.user)
+
+

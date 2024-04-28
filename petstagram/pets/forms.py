@@ -41,12 +41,12 @@ class PetEditForm(ReadonlyFieldsFormMixin, PetBaseForm):
         return self.instance.date_of_birth
 
 
-class PetDeleteForm(ReadonlyFieldsFormMixin, PetBaseForm):
-    readonly_fields = "__all__"
+class PetDeleteForm(PetBaseForm):
+    # readonly_fields = "__all__"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self._apply_readonly_on_fields()
+        # self._apply_readonly_on_fields()
 
     def save(self, commit=True):
         if commit:
